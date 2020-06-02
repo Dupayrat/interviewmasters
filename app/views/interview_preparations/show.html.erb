@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="d-flex flex-column">
+  <div class="d-flex flex-column mt-5">
     <div class="card p-3 mb-2">
       <h1><%= @interview_preparation.company %></h1>
       <h3><%= @interview_preparation.job %></h3>
@@ -7,12 +7,16 @@
        <p>Interview in <span class="font-weight-bold"><%= (@interview_preparation.interview_date - Date.today).to_i %></span> days</p>
     </div>
 
-    <div class="card mt-2">
-      <p class="m-0 pl-3">Get informations about <span class="font-weight-bold"><%= @interview_preparation.company %></span></p>
+    <div class="card mt-2 p-2">
+      <p class="m-0">Get informations about <span class="font-weight-bold"><%= @interview_preparation.company %></span></p>
     </div>
 
-    <div class="card mt-2">
-      <p class="m-0 pl-3">Get informations about <span class="font-weight-bold"><%= @interview_preparation.company %></span></p>
+    <div class="card mt-2 p-2">
+      <p class="m-0">Get informations about <span class="font-weight-bold"><%= @interview_preparation.job %></span></p>
+    </div>
+
+    <div class="card mt-2 p-2">
+      <p class="m-0">Show you're a great fit</p>
     </div>
   </div>
 </div>

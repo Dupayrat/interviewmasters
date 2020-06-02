@@ -9,10 +9,9 @@ class InterviewPreparationsController < ApplicationController
 
   def create
 
-<<<<<<< HEAD
+  end
+
   def show
     @interview_preparation = InterviewPreparation.find(params[:id])
-=======
->>>>>>> master
   end
 end
