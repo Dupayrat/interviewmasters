@@ -12,14 +12,51 @@
 }
 .card-interview-prep {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
-  height: 375px;
+  height: 350px;
   width: 350px;
   padding: 30px;
   margin: 40px 20px 0 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   p, h3 {
     margin: 0;
+  }
+}
+.job-title {
+  color: $gray;
+}
+.days-counter {
+  color: $gray;
+}
+
+.test {
+  height: 350px;
+  width: 350px;
+  background-color: white;
+}
+.new-prep {
+  height: 350px;
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+    border: 1px solid $gray;
+    border-radius: 10px;
+    font-size: 60px;
+    margin: 0;
+    color: $gray;
+    &:hover {
+      border: 1px solid $darkgray;
+      color: $darkgray;
+    }
   }
 }

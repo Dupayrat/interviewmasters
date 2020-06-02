@@ -5,11 +5,21 @@
         <div class="card-interview-prep">
           <div class="card-interview-prep-infos">
             <h3>Interview preparation for <span class="font-weight-bold"><%= interview_preparation.company %></span></h3>
-            <p> as <span class="font-italic"><%= interview_preparation.job %></span></p>
+            <p> as <span class="job-title"><%= interview_preparation.job %></span></p>
           </div>
-          <p>Interview in <span class="font-weight-bold"><%= (interview_preparation.interview_date - Date.today).to_i %></span> days</p>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+          </div>
+          <p class="days-counter">Interview in <span class="font-weight-bold"><%= (interview_preparation.interview_date - Date.today).to_i %></span> days</p>
         </div>
       <% end %>
+    <% end %>
+    <%= link_to new_interview_preparation_path do %>
+      <div class="new-prep">
+        <div>
+          +
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
