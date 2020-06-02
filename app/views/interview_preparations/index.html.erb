@@ -1,8 +1,12 @@
 <div class="container">
-  <div class="cards d-flex justify-content-around">
+  <div class="cards d-flex justify-content-around flex-wrap">
     <% @interview_preparations.each do |interview_preparation| %>
-      <div class="card">
-        <p><%= interview_preparation.company %></p>
+      <div class="card p-4">
+        <div class="interview-infos d-flex flex-column align-items-center">
+          <p class="m-0">Interview preparation for <span class="font-weight-bold"><%= interview_preparation.company %></span></p>
+          <p class="m-0"> as <span class="font-italic"><%= interview_preparation.job %></span></p>
+        </div>
+        <p class="m-0">Interview in <span class="font-weight-bold"><%= (interview_preparation.interview_date - Date.today).to_i %></span> days</p>
       </div>
     <% end %>
   </div>

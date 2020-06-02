@@ -1,6 +1,6 @@
 class InterviewPreparationsController < ApplicationController
   def index
-    @interview_preparations = InterviewPreparation.all
+    @interview_preparations = current_user.interview_preparations
   end
 
   def new
