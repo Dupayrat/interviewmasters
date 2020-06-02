@@ -1,9 +1,14 @@
 class InterviewPreparationsController < ApplicationController
   def index
+    @interview_preparations = current_user.interview_preparations
+  end
+  
+  def show
+    @interview_preparation = InterviewPreparation.find(params[:id])
   end
 
   def new
-  @interview_preparation = InterviewPreparation.new
+    @interview_preparation = InterviewPreparation.new
   end
 
   def create
@@ -21,5 +26,4 @@ class InterviewPreparationsController < ApplicationController
   def interview_preparation_params
     params.require(:interview_preparation).permit(:company, :job, :interview_date, :experience_expectation)
   end
-
 end
