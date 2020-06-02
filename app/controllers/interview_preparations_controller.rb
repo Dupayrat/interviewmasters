@@ -1,13 +1,13 @@
 class InterviewPreparationsController < ApplicationController
-def index
-end
+  def index
+    @interview_preparations = InterviewPreparation.all
+  end
 
-def new
+  def new
 
-end
+  end
 
-def create
+  def create
 
-end
-
+  end
 end
