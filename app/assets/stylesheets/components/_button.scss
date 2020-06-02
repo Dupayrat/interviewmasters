@@ -1,0 +1,28 @@
+.btn-ghost {
+  color: $orange;
+  border: 1px solid $darkgray;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+  color: $orange;
+}
+
+.btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orange;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: $lightorange;
+  color: white;
+}
+
