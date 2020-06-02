@@ -13,45 +13,45 @@ InterviewPreparation.destroy_all
 puts 'Creating users...'
 
 anthony = User.new(
-    # first_name: "Anthony",
-    # last_name: "Christen",
+    first_name: "Anthony",
+    last_name: "Christen",
     email:    "antho@gmail.com",
-    password: "123456"
-    # role: "candidate"
+    password: "123456",
+    role: "candidate"
     # image:
     )
 anthony.save!
 
 philippe = User.new(
-    # first_name: "Philippe",
-    # last_name: "du Payrat",
+    first_name: "Philippe",
+    last_name: "du Payrat",
     email:    "philippedupayrat@gmail.com",
-    password: "123456"
-    # role: "candidate"
+    password: "123456",
+    role: "candidate"
     # image:
     )
 philippe.save!
 
 johnjohn = User.new(
-    # first_name: "John-John",
-    # last_name: "de Weerdt",
+    first_name: "John-John",
+    last_name: "de Weerdt",
     email:    "johnjohn20015@hotmail.com",
-    password: "123456"
-    # role: "candidate"
+    password: "123456",
+    role: "candidate"
     # image:
     )
 johnjohn.save!
 
 philippe_circles = User.new(
-    # first_name: "Philippe",
-    # last_name: "circles.work",
+    first_name: "Philippe",
+    last_name: "circles.work",
     email:    "philippe@circles.work",
-    password: "123456"
-    # role: "coach"
+    password: "123456",
+    role: "coach",
+    industry: "start-up, mobility, recruiting",
+    skills: "sales, strategy, recruiting",
+    description: "As a manager in start-up & scale-up, I know what the expectations are for successful candidates, as well as potential pitfalls."
     # image:
-    # industry: [start-up, mobility, recruiting]
-    # skills : [sales, strategy, recruiting]
-    # description: As a manager in start-up & scale-up, I know what the expectations are for successful candidates, as well as potential pitfalls.
     )
 philippe_circles.save!
 
@@ -86,7 +86,7 @@ protonmail_pm = InterviewPreparation.new(
   # UPLOAD JOB DESC:
   user: anthony
   )
-# protonmail_pm.save!
+protonmail_pm.save!
 
 
 puts 'interview preparations created...'
