@@ -1,0 +1,30 @@
+<div class = "container" >
+  <h2 class = "text-center"> Get ready for your next interview </h2>
+  <%= simple_form_for @interview_preparation  do |f| %>
+  <%= f.error_notification %>
+  <div class = "form-group">
+    <%= f.input :company, placeholder: "Alan, Blablacar..." %>
+    <div class="invalid-feedback">Company can't be blank</div>
+    <div class="valid-feedback">Looks good!</div>
+    <small> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
+  </div>
+
+  <div class="form-group mb-20">
+     <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
+    <div class="invalid-feedback">Company can't be blank</div>
+    <div class="valid-feedback">Looks good!</div>
+    <small> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
+  </div>
+
+  <div class="form-group ">
+    <%= f.input :interview_date %>
+    <div class="d-flex flex-row justify-content-between align-items-center"></div>
+    <small> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
+  </div>
+
+  <%= f.input :experience_expectation, as: :text %>
+
+  <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+<% end %>
+</div>
