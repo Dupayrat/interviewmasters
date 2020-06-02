@@ -1,16 +1,18 @@
 class InterviewPreparationsController < ApplicationController
-def index
-end
+  def index
+    @interview_preparations = current_user.interview_preparations
+  end
 
-def new
+  def new
 
-end
+  end
 
-def create
+  def create
 
-end
-
+<<<<<<< HEAD
   def show
     @interview_preparation = InterviewPreparation.find(params[:id])
+=======
+>>>>>>> master
   end
 end
