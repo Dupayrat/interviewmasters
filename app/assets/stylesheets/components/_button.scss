@@ -26,3 +26,18 @@
   color: white;
 }
 
+.btn-challenges {
+  padding: 15px;
+  background-color: $orange;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  font-family: $body-font;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
