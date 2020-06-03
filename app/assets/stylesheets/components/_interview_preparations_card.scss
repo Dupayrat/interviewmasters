@@ -24,6 +24,9 @@
   p, h3 {
     margin: 0;
   }
+  &:hover {
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+  }
 }
 .job-title {
   color: $gray;
