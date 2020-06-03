@@ -18,6 +18,12 @@
     <div class="card mt-2 p-2">
       <p class="m-0">Show you're a great fit</p>
     </div>
+
+  <% @interview_preparation.missions.each do |p| %>
+    <p>
+      <%= p.name %>
+    </p>
+    <% end  %>
   </div>
 </div>
 
