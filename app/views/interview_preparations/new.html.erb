@@ -27,9 +27,15 @@
     <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
     </div>
 
-    <div class="form-group ">
-    <%= f.submit "Start my interview preparation work", class: "btn btn-flat" %>
+  <div class="form-group ">
+   <%= f.simple_fields_for :missions do |m| %>
+      <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
+      <%= m.input :name, as: :string, label: false %>
+    <% end %>
+  </div>
+
+  <div class="form-group ">
+    <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
     <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
