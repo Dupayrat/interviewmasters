@@ -82,9 +82,16 @@
     <% end  %>
   </div>
 
-  <div class="display-zone">
+  #href + image
 
+  <div class="display-zone">
+  <% @company_videos.flatten.each do |video| %>
+    <%= video[:url] %>
+    <%= video[:thumbnails]%>
+    <%= video[:title]%>
+  <% end %>
   </div>
 
 </div>
+
 
