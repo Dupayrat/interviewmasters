@@ -81,12 +81,17 @@
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="display-zone col-8">
+        <% @company_videos.flatten.each do |video| %>
+          <%= video[:url] %>
+          <%= video[:thumbnails]%>
+          <%= video[:title]%>
+        <% end %>
       </div>
     </div>
+
   </div>
 </div>
 
