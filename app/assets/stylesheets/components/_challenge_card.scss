@@ -1,0 +1,12 @@
+.challenge-card {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  p {
+    margin: 0;
+  } &:hover {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+}
