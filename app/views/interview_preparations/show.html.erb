@@ -1,15 +1,32 @@
 <div class="container">
-  <div class="card p-3 mb-2">
-    <h1><%= @interview_preparation.company %></h1>
-    <h3><%= @interview_preparation.job %></h3>
-    <p><%= @interview_preparation.experience_expectation %></p>
-     <p>Interview in <span class="font-weight-bold"><%= (@interview_preparation.interview_date - Date.today).to_i %></span> days</p>
+  <div class="interview-prep-infos">
+    <div class="general-infos">
+      <div>
+        <h1><%= @interview_preparation.company %></h1>
+        <h3><%= @interview_preparation.job %></h3>
+      </div>
+      <p>Interview in <span class="font-weight-bold"><%= (@interview_preparation.interview_date - Date.today).to_i %></span> days</p>
+    </div>
+    <div class="experience-expectations">
+      <h2>Experience expectations</h2>
+      <p><%= @interview_preparation.experience_expectation %>
+    </div>
+    <div class="missions">
+      <h2>Missions</h2>
+      <p>add missions</p>
+    </div>
+     <div class="hard-skils">
+      <h2>Hard skills</h2>
+      <p>add hard skills</p>
+    </div>
+     <div class="attributes">
+      <h2>Attributes</h2>
+      <p>add attributes</p>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+    </div>
   </div>
-
-
-
-
-
 
   <div class="preparation-menu">
     <div class="accordion" id="accordionExample">
@@ -22,7 +39,7 @@
           </h2>
         </div>
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
           <div class="card-body">
             Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
           </div>
@@ -59,7 +76,9 @@
     </div>
   </div>
 
+  <div class="display-zone">
 
+  </div>
 
 </div>
 
