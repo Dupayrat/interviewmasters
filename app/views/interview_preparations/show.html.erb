@@ -40,43 +40,43 @@
 
         <div class="collapse show scrollable" id="collapseExample">
           <div class="Get-company-info">
-            <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.company %></span></h4>
-            <div class="challenge-card">
+            <h4>Get info about <span class="font-weight-bold"><%= @interview_preparation.company %></span></h4>
+            <div class="challenge-card" data-toggle="collapse" href="#videos-company" role="button" aria-expanded="false" aria-controls="videos-company">
               <p>Watch top 6 videos</p>
             </div>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Read top 5 articles</p>
             </div>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Frequently asked questions</p>
             </div>
-             <div class="challenge-card">
+             <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Quizz</p>
             </div>
           </div>
 
           <div class="Get-job-info">
             <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.job %></span></h4>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Watch top 6 videos</p>
             </div>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Read top 5 articles</p>
             </div>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Frequently asked questions</p>
             </div>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Similar profiles</p>
             </div>
-             <div class="challenge-card">
+             <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Quizz</p>
             </div>
           </div>
 
           <div class="Get-job-info">
             <h4>Show you're a great fit</h4>
-            <div class="challenge-card">
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Add cards</p>
             </div>
           </div>
@@ -84,15 +84,20 @@
       </div>
 
       <div class="display-zone col-8">
-        <% @company_videos.flatten.each do |video| %>
-          <%= video[:url] %>
-          <%= video[:thumbnails]%>
-          <%= video[:title]%>
-        <% end %>
+        <%= render 'challenges/default' %>
+        <%= render 'challenges/videos_company' %>
+
       </div>
+
     </div>
 
   </div>
+
+  <% @company_videos.flatten.each do |video| %>
+    <%= video[:url] %>
+    <%= video[:thumbnails]%>
+    <%= video[:title]%>
+  <% end %>
 </div>
 
 
