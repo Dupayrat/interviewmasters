@@ -1,28 +1,31 @@
-<div class = "container" >
+<div class = "container margintop30" >
   <h2 class = "text-center"> Get ready for your next interview </h2>
   <%= simple_form_for @interview_preparation  do |f| %>
-  <%= f.error_notification %>
-  <div class = "form-group">
-    <%= f.input :company, placeholder: "Alan, Blablacar..." %>
-    <div class="invalid-feedback">Company can't be blank</div>
-    <div class="valid-feedback">Looks good!</div>
-    <small> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
-  </div>
+    <%= f.error_notification %>
+    <div class = "form-group">
+      <%= f.input :company, placeholder: "Alan, Blablacar..." %>
+      <div class ="invalid-feedback">Company can't be blank</div>
+      <div class ="valid-feedback">Looks good!</div>
+      <small class = "line-height0"> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
+    </div>
 
-  <div class="form-group mb-20">
-     <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
-    <div class="invalid-feedback">Company can't be blank</div>
-    <div class="valid-feedback">Looks good!</div>
-    <small> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
-  </div>
+    <div class="form-group">
+       <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
+      <div class="invalid-feedback">Job can't be blank</div>
+      <div class="valid-feedback">Looks good!</div>
+      <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
+    </div>
 
-  <div class="form-group ">
-    <%= f.input :interview_date %>
-    <div class="d-flex flex-row justify-content-between align-items-center"></div>
-    <small> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
-  </div>
+    <div class="form-group ">
+      <%= f.input :interview_date %>
+      <div class="d-flex flex-row justify-content-between align-items-center"></div>
+      <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
+    </div>
 
-  <%= f.input :experience_expectation, as: :text %>
+    <div class="form-group ">
+    <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
+    <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
+    </div>
 
   <div class="form-group ">
    <%= f.simple_fields_for :missions do |m| %>
@@ -31,11 +34,8 @@
     <% end %>
   </div>
 
-
-  <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
-  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-
   <div class="form-group ">
-
+    <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+  </div>
 <% end %>
-</div>
