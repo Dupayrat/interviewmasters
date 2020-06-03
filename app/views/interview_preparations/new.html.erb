@@ -24,7 +24,18 @@
 
   <%= f.input :experience_expectation, as: :text %>
 
+  <div class="form-group ">
+   <%= f.simple_fields_for :missions do |m| %>
+      <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
+      <%= m.input :name, as: :string, label: false %>
+    <% end %>
+  </div>
+
+
   <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
   <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+
+  <div class="form-group ">
+
 <% end %>
 </div>
