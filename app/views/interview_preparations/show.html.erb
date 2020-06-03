@@ -28,63 +28,66 @@
     </div>
   </div>
 
-  <div class="preparation-menu">
-    <div class="accordion" id="accordionExample">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              Get informations about <span class="font-weight-bold"><%= @interview_preparation.company %></span>
-            </button>
-          </h2>
+
+  <div class="challenges container">
+    <div class="row">
+      <div class="challenges-choices col-4">
+        <p>
+          <a class="btn-challenges" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Challenges
+          </a>
+        </p>
+
+        <div class="collapse show" id="collapseExample">
+          <div class="Get-company-info">
+            <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.company %></span></h4>
+            <div class="challenge-card">
+              <p>Watch top 6 videos</p>
+            </div>
+            <div class="challenge-card">
+              <p>Read top 5 articles</p>
+            </div>
+            <div class="challenge-card">
+              <p>Frequently asked questions</p>
+            </div>
+             <div class="challenge-card">
+              <p>Quizz</p>
+            </div>
+          </div>
+
+          <div class="Get-job-info">
+            <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.job %></span></h4>
+            <div class="challenge-card">
+              <p>Watch top 6 videos</p>
+            </div>
+            <div class="challenge-card">
+              <p>Read top 5 articles</p>
+            </div>
+            <div class="challenge-card">
+              <p>Frequently asked questions</p>
+            </div>
+            <div class="challenge-card">
+              <p>Similar profiles</p>
+            </div>
+             <div class="challenge-card">
+              <p>Quizz</p>
+            </div>
+          </div>
+
+          <div class="Get-job-info">
+            <h4>Show you're a great fit</h4>
+            <div class="challenge-card">
+              <p>Add cards</p>
+            </div>
+          </div>
         </div>
 
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
       </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Get informations about <span class="font-weight-bold"><%= @interview_preparation.job %></span>
-            </button>
-          </h2>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingThree">
-          <h2 class="mb-0">
-            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Show you're a great fit
-            </button>
-          </h2>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-          </div>
-        </div>
+
+      <div class="display-zone col-8">
       </div>
     </div>
-
-  <% @interview_preparation.missions.each do |p| %>
-    <p>
-      <%= p.name %>
-    </p>
-    <% end  %>
   </div>
-
-  <div class="display-zone">
-
-  </div>
-
 </div>
+
 

@@ -21,8 +21,9 @@
 }
 .display-zone {
   background-color: white;
-  height: 300px;
-  width: 300px;
+  border-radius: 10px;
+  height: inherit;
+  padding: 30px;
 }
 .general-infos {
   margin-bottom: 20px;
