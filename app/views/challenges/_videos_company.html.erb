@@ -1,7 +1,12 @@
 <div class="collapse" id="videos-company" data-parent="#accordion">
   <h3>Watch top 6 videos</h3>
   <div class="videos">
-
+    <% @company_videos.flatten.each do |video| %>
+      <div class="video">
+        <iframe width="200" height="150" src=<%= video[:url] %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h4><%= video[:title]%></h4>
+      </div>
+    <% end %>
 
 
 
