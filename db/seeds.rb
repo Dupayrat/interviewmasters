@@ -74,7 +74,7 @@ migros_webdev = InterviewPreparation.new(
   interview_date: Date.parse("01/07/2020"),
   experience_expectation: "Computer sciences degrees and 2 years work on Rails & Javascript",
   # UPLOAD JOB DESC:
-  user: johnjohn
+  user: anthony
   )
 migros_webdev.save!
 

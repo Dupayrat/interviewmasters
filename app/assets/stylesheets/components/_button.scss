@@ -1,8 +1,8 @@
 .btn-ghost {
-  color: $orange;
+  color: $darkgray;
   border: 1px solid $darkgray;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-radius: 5px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -19,6 +19,7 @@
   border-radius: 4px;
   background: $orange;
   transition: background 0.3s ease;
+  color:white
 }
 
 .btn-flat:hover {
