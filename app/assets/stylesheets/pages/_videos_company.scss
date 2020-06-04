@@ -1,0 +1,15 @@
+.videos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.fa-play {
+  color: center;
+}
+.video-infos {
+  text-align: center;
+  h4 {
+    margin: 10px 0;
+  }
+}
