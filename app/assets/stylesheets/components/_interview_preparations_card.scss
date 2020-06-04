@@ -1,6 +1,7 @@
 .cards-interview-prep {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: wrap;
   a {
     color: black;
@@ -26,6 +27,7 @@
   }
   &:hover {
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    cursor: pointer;
   }
 }
 .job-title {
@@ -60,6 +62,7 @@
     &:hover {
       border: 1px solid $darkgray;
       color: $darkgray;
+      cursor: pointer;
     }
   }
 }
