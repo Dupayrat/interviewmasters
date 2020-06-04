@@ -13,7 +13,7 @@ class InterviewPreparationsController < ApplicationController
       urls = [
         "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
         "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20Interview&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20other&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20start%20up&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2"
       ]
         urls.each do |url|
           json = JSON.parse(open(url).read)
