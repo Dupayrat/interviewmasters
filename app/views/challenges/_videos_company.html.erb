@@ -2,21 +2,10 @@
   <h3>Watch top 6 videos</h3>
   <div class="videos">
     <% @company_videos.flatten.each do |video| %>
-      <div class="video">
-        <iframe width="200" height="150" src=<%= video[:url] %> frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <h4><%= video[:title]%></h4>
-      </div>
+      <% embeded_url = video[:url].gsub(/watch\?v=/, 'embed/') %>
+      <iframe src="<%= embeded_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h4><%= video[:title] %></h4>
     <% end %>
-
-
-
-
-
-     <div class="video-infos">
-      <div class="video"></div>
-      <h4>Title</h4>
-    </div>
   </div>
 </div>
-
 
