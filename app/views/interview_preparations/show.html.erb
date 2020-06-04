@@ -89,6 +89,14 @@
           <%= video[:thumbnails]%>
           <%= video[:title]%>
         <% end %>
+
+        <div class="display-zone col-8">
+        <% @company_articles.flatten.each do |article| %>
+          <%= article[:url] %>
+          <%= article[:source]%>
+          <%= article[:title]%>
+          <%= article[:publication_date] %>
+        <% end %>
       </div>
     </div>
 
