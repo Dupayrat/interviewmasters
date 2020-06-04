@@ -8,13 +8,14 @@
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
-h1 {
-  margin: 10px;
-  color: #FBAF00;
-}
-h2 {
-  margin: 10px;
-  color: #FFD639;
+.homepage {
+  h1 {
+    margin: 10px;
+    color: #FBAF00;
+  } h2 {
+    margin: 10px;
+    color: #FFD639;
+  }
 }
 .paragraph {
   width: 400px;

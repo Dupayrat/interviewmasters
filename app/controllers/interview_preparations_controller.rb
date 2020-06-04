@@ -10,6 +10,10 @@ class InterviewPreparationsController < ApplicationController
   def show
     @interview_preparation = InterviewPreparation.find(params[:id])
 
+    # -------------------
+    # VIDEOS OF (COMPANY)
+    # -------------------
+
     # @company_videos = []
 
     # urls = [
@@ -28,6 +32,10 @@ class InterviewPreparationsController < ApplicationController
     #     end
     #   end
 
+    # ------------------
+    # ARTICLES (COMPANY)
+    # ------------------
+
     @company_articles = []
     doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
     doc_json = Hash.from_xml(doc)
@@ -39,6 +47,20 @@ class InterviewPreparationsController < ApplicationController
       source: item["source"],
       publication_date: item["pubDate"]
     }
+    end
+
+    # ------------------------------------
+    # FREQUENTLY ASKED QUESTIONS (COMPANY)
+    # ------------------------------------
+
+    @company_questions = []
+
+    company = @interview_preparation.company.downcase.gsub(/\s/, '-')
+
+    doc = Nokogiri::HTML(URI.open("https://fr.glassdoor.ch/Entretien/manor-questions-entretien-d-embauche-SRCH_KE0,5.htm"))
+
+    doc.search('.questionText').each do |element|
+      @company_questions << element.text
     end
   end
 
