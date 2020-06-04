@@ -54,3 +54,10 @@
 .scrollable::-webkit-scrollbar {
   display: none;
 }
+.scrollable-display-zone{
+  height: 555px;
+  overflow-y: auto;
+}
+.scrollable-display-zone::-webkit-scrollbar {
+  display: none;
+}

@@ -4,7 +4,7 @@
     <% @company_videos.flatten.each do |video| %>
       <% embeded_url = video[:url].gsub(/watch\?v=/, 'embed/') %>
       <iframe src="<%= embeded_url %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <h4><%= video[:title] %></h4>
+      <p><%= video[:title] %></p>
     <% end %>
   </div>
 </div>

@@ -1,3 +1,9 @@
 <div class="collapse" id="articles-company" data-parent="#accordion">
-  <h1>Articles</h1>
+  <h3>Read top 6 articles</h3>
+  <% @company_articles.flatten.each do |article| %>
+    <%= article[:url] %>
+    <%= article[:source]%>
+    <%= article[:title]%>
+    <%= article[:publication_date] %>
+  <% end %>
 </div>
