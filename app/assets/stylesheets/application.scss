@@ -1,5 +1,7 @@
 $theme-colors: ( "bootstrap": #F28705, "simpleform": #00617f);
 
+// Date with flatpicker
+@import "flatpickr/dist/flatpickr";
 
 // Graphical variables
 @import "config/fonts";

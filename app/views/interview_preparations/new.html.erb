@@ -1,5 +1,6 @@
 <div class = "container margintop30" >
   <h2 class = "text-center"> Get ready for your next interview </h2>
+
   <%= simple_form_for @interview_preparation  do |f| %>
     <%= f.error_notification %>
     <div class = "form-group">
@@ -16,26 +17,29 @@
       <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
     </div>
 
-    <div class="form-group ">
-      <%= f.input :interview_date %>
-      <div class="d-flex flex-row justify-content-between align-items-center"></div>
+   <!-- Simple_form for date only-->
+    <div class="form-group">
+          <%= f.input :interview_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+
+    <div class="d-flex flex-row justify-content-between align-items-center"></div>
       <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
     </div>
 
     <div class="form-group ">
-    <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
-    <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
+      <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
+      <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
     </div>
 
-  <div class="form-group ">
-   <%= f.simple_fields_for :missions do |m| %>
-      <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
-      <%= m.input :name, as: :string, label: false %>
-    <% end %>
-  </div>
+    <div class="form-group ">
+      <%= f.simple_fields_for :missions do |m| %>
+        <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
+        <%= m.input :name, as: :string, label: false %>
+      <% end %>
+    </div>
 
-  <div class="form-group ">
-    <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
-    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
-  </div>
-<% end %>
+    <div class="form-group ">
+      <%= f.submit "Start my interview preparation work", class: "btn btn-primary" %>
+      <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary" %>
+    </div>
+  <% end %>
+</div>
