@@ -1,15 +1,21 @@
 .videos {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-.fa-play {
-  color: center;
+  margin: 0;
+  text-align: center;
+  iframe {
+    border-radius: 10px;
+    height: 250px;
+    width: 100%;
+  }
 }
 .video-infos {
   text-align: center;
   h4 {
     margin: 10px 0;
+  }
+}
+#videos-company {
+  text-align: center;
+  h3 {
+    margin-bottom: 30px;
   }
 }
