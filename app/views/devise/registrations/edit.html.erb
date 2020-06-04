@@ -23,6 +23,12 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
+  <div>
+    <%= f.input :skills,
+                hint: "leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "Economics,programmer,engener..." } %>
+  </div>
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
