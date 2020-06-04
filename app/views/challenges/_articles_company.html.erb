@@ -1,9 +1,16 @@
 <div class="collapse" id="articles-company" data-parent="#accordion">
   <h3>Read top 6 articles</h3>
-  <% @company_articles.flatten.each do |article| %>
-    <%= article[:url] %>
-    <%= article[:source]%>
-    <%= article[:title]%>
-    <%= article[:publication_date] %>
-  <% end %>
+  <div class="articles">
+    <% @company_articles.flatten.each do |article| %>
+      <div class="article">
+        <%= link_to article[:url], target: "_blank" do %>
+          <div class="article-infos">
+            <h4><%= article[:title]%></h4>
+            <p><%= article[:publication_date]%></p>
+          </div>
+        <% end %>
+        <iframe src="<%= article[:url] %>" frameborder="0"></iframe>
+      </div>
+    <% end %>
+  </div>
 </div>
