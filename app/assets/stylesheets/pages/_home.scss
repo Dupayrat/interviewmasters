@@ -1,36 +1,22 @@
 // Specific CSS for your home-page
-.backimage {
-  background-image: url('https://static.businessinsider.sg/2019/06/06/5d0aae1d97ad7645413accc7.png');
-  width: 1000px;
-  height: 900px;
+.banner {
+  background-image: url('https://images.unsplash.com/photo-1507123948929-86a949bdaa23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=986&q=80');
   padding: 100px;
-  margin: 30px;
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
-}
-h1 {
-  margin: 10px;
-  color: #FBAF00;
-}
-h2 {
-  margin: 10px;
-  color: #FFD639;
-}
-.paragraph {
-  width: 400px;
-  p {
-    color: #007CBE;
-    font-size: 32px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
+  background-size: cover;
+  height: 1000px;
 }
 
-.btn-flat {
-  font-size: 20px;
-  color: #E71D36;
-  margin: 15px;
-  padding: 12px 30px;
-  border-radius: 5px;
-  background: #D1603D;
+h1 {
+  margin: -50px;
+  color: $lightorange;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+p {
+  color: $orange;
+  font-size: 32px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 100px;
 }
