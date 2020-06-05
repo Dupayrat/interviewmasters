@@ -76,7 +76,7 @@ class InterviewPreparationsController < ApplicationController
     @interview_preparation = InterviewPreparation.new(interview_preparation_params)
     @interview_preparation.user = current_user
 
-    if @interview_preparation.save!
+    if @interview_preparation.save
       redirect_to interview_preparation_path(@interview_preparation)
     else
       render :new
