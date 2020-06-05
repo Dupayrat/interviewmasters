@@ -53,6 +53,7 @@ class InterviewPreparationsController < ApplicationController
     # FREQUENTLY ASKED QUESTIONS (COMPANY)
     # ------------------------------------
 
+
   #   @company_questions = []
 
   #   company = @interview_preparation.company.downcase.gsub(/\s/, '-')
@@ -90,7 +91,7 @@ class InterviewPreparationsController < ApplicationController
     :job,
     :interview_date,
     :experience_expectation,
-    missions_attributes: [:id, :name]
+    missions_attributes: [:id, :name, :label]
     )
   end
 end
