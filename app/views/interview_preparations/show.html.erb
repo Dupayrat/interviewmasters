@@ -13,7 +13,11 @@
     </div>
     <div class="missions">
       <h2>Missions</h2>
-      <p>add missions</p>
+      <% counter = 1 %>
+      <% @interview_preparation.missions.each do |mission| %>
+        <p><%= counter %>. <%= mission.name %></p>
+        <% counter += 1 %>
+      <% end %>
     </div>
      <div class="hard-skils">
       <h2>Hard skills</h2>

@@ -30,14 +30,28 @@
   display: flex;
   justify-content: space-between;
 }
+.experience-expectations {
+  p {
+    margin-top: 10px;
+  }
+}
 .missions {
   margin-top: 20px;
+  p {
+    margin-top: 10px;
+  }
 }
 .hard-skils {
   margin-top: 20px;
+  p {
+    margin-top: 10px;
+  }
 }
 .attributes {
   margin: 20px 0;
+  p {
+    margin-top: 10px;
+  }
 }
 .challenges-choices {
   h4 {
