@@ -1,5 +1,12 @@
 .footer {
-  background-color: $darkgray;
-  height: 300px;
-  margin-top: 50px;
+  background-color: $lightorange;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.container-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:20px;
 }

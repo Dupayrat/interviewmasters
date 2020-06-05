@@ -13,7 +13,11 @@
     </div>
     <div class="missions">
       <h2>Missions</h2>
-      <p>add missions</p>
+      <% counter = 1 %>
+      <% @interview_preparation.missions.each do |mission| %>
+        <p><%= counter %>. <%= mission.name %></p>
+        <% counter += 1 %>
+      <% end %>
     </div>
      <div class="hard-skils">
       <h2>Hard skills</h2>
@@ -47,7 +51,7 @@
             <div class="challenge-card" data-toggle="collapse" href="#articles-company" role="button" aria-expanded="false" aria-controls="articles-company">
               <p>Read top 6 articles</p>
             </div>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
+            <div class="challenge-card" data-toggle="collapse" href="#questions-company" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Frequently asked questions</p>
             </div>
              <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
@@ -85,9 +89,8 @@
 
       <div class="display-zone col-8 scrollable-display-zone">
         <div class="accordion" id="accordion">
-          <%= render 'challenges/default' %>
-
-          <%= render 'challenges/articles_company' %>
+          <%= render 'challenges/articles_company'%>
+          <%= render 'challenges/questions_company'%>
         </div>
 
       </div>

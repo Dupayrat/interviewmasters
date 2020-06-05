@@ -69,10 +69,12 @@ alan_sales = InterviewPreparation.new(
 alan_sales.save!
 
 migros_webdev = InterviewPreparation.new(
-  company: "Migros",
+  company: "Back Market",
   job: "Web Developer Full Stack",
   interview_date: Date.parse("01/07/2020"),
   experience_expectation: "Computer sciences degrees and 2 years work on Rails & Javascript",
+  missions_attributes: [{name:"Improve front end using Javascript & Rails tech"}, {name:"Develop new functionalities"}, {name:"Develop back-end feature from conception to delivery"}],
+
   # UPLOAD JOB DESC:
   user: anthony
   )
@@ -83,10 +85,34 @@ protonmail_pm = InterviewPreparation.new(
   job: "Product Manager",
   interview_date: Date.parse("15/06/2020"),
   experience_expectation: "First work experience in tech companies, 1 year minimum",
+  missions_attributes: [{name:"Design a mobile app in 12 months for fintech"}, {name:"Lead product priorization for fintech"}, {name:"Be the scrum master for team, leading stand up meetings"}],
   # UPLOAD JOB DESC:
   user: anthony
   )
 protonmail_pm.save!
+
+doctolib_sales = InterviewPreparation.new(
+  company: "Doctolib",
+  job: "Sales",
+  interview_date: Date.parse("23/06/2020"),
+  experience_expectation: "Previous experience in sales, hitting targets, in fast-paced environments",
+  # UPLOAD JOB DESC:
+  missions_attributes: [{name:"Hitting sales target in B2B"}, {name:"Training your team to hit sales target"}, {name:"Ongoing improvement over methods & processes"}],
+  user: anthony
+  )
+doctolib_sales.save!
+
+manomano_software = InterviewPreparation.new(
+  company: "ManoMano",
+  job: "Software Engineer",
+  interview_date: Date.parse("20/08/2020"),
+  experience_expectation: "5 years as a software engineer developping products. Good knowledge of PHP",
+  missions_attributes: [{name:"Maintain existing website"}, {name:"Develop new features for ManoMano website"}, {name:"Adapt user story to current needs"}],
+
+  # UPLOAD JOB DESC:
+  user: anthony
+  )
+manomano_software.save!
 
 puts 'interview preparations created...'
 
