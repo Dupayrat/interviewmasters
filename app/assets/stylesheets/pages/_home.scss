@@ -5,26 +5,23 @@
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
   background-size: cover;
-  height: 1000px;
+  min-height: calc(100vh - 170px);
 }
+  .homepage_text {
+    margin-top: 80px;
+    width:82%;
 
-.homepage {
-  h1 {
-    margin: 10px;
-    color: $orange;
-  } h2 {
-    margin: 10px;
-    color: $lightorange;
+    h1 {
+      margin: 10px;
+      color: $orange;
+      font-size:3.5vw;
+    }
+    h2 {
+      margin: 10px;
+      color: $mediumgray;
+      font-size:2.3vw;
+    }
   }
-}
-.paragraph {
-  width: 400px;
-  p {
-    color: #007CBE;
-    font-size: 32px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-}
 
 .btn-flat {
   padding: 8px 24px;
@@ -34,7 +31,7 @@
   color:white;
 
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .btn-flat:hover {
