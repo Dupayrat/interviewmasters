@@ -53,15 +53,15 @@ class InterviewPreparationsController < ApplicationController
     # FREQUENTLY ASKED QUESTIONS (COMPANY)
     # ------------------------------------
 
-    @company_questions = []
+  #   @company_questions = []
 
-    company = @interview_preparation.company.downcase.gsub(/\s/, '-')
+  #   company = @interview_preparation.company.downcase.gsub(/\s/, '-')
 
-    doc = Nokogiri::HTML(URI.open("https://fr.glassdoor.ch/Entretien/manor-questions-entretien-d-embauche-SRCH_KE0,5.htm"))
+  #   doc = Nokogiri::HTML(URI.open("https://fr.glassdoor.ch/Entretien/manor-questions-entretien-d-embauche-SRCH_KE0,5.htm"))
 
-    doc.search('.questionText').each do |element|
-      @company_questions << element.text
-    end
+  #   doc.search('.questionText').each do |element|
+  #     @company_questions << element.text
+  #   end
   end
 
   def new
@@ -69,7 +69,6 @@ class InterviewPreparationsController < ApplicationController
     @interview_preparation.missions.build(label: "Mission principale")
     @interview_preparation.missions.build(label: "Mission 2")
     @interview_preparation.missions.build(label: "Mission 3")
-
   end
 
   def create
