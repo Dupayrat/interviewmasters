@@ -8,13 +8,14 @@
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
-h1 {
-  margin: 10px;
-  color: #FBAF00;
-}
-h2 {
-  margin: 10px;
-  color: #FFD639;
+.homepage {
+  h1 {
+    margin: 10px;
+    color: $orange;
+  } h2 {
+    margin: 10px;
+    color: $lightorange;
+  }
 }
 .paragraph {
   width: 400px;
@@ -26,11 +27,15 @@ h2 {
 }
 
 .btn-flat {
-  font-size: 20px;
-  color: #E71D36;
-  margin: 15px;
-  padding: 12px 30px;
-  border-radius: 5px;
-  background: #D1603D;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orange;
+  transition: background 0.3s ease;
+  color:white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-flat:hover {
+  background: $lightorange;
+  color: white;
 }
