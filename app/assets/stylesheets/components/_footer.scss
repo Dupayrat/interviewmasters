@@ -1,6 +1,6 @@
 .footer {
   background-color: $darkgray;
-  height: 60px;
+  height: 100px;
   margin-top: 10px;
 }
 
@@ -8,5 +8,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top:20px;
+  padding-top: 20px;
+}
+
+.logocircles {
+  width:150px;
 }
