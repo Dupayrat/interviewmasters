@@ -1,13 +1,13 @@
 // Specific CSS for your home-page
-.backimage {
-  background-image: url('https://static.businessinsider.sg/2019/06/06/5d0aae1d97ad7645413accc7.png');
-  width: 1000px;
-  height: 900px;
+.banner {
+  background-image: url('https://images.unsplash.com/photo-1507123948929-86a949bdaa23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=986&q=80');
   padding: 100px;
-  margin: 30px;
   border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  background-size: cover;
+  height: 1000px;
 }
+
 .homepage {
   h1 {
     margin: 10px;
@@ -32,7 +32,9 @@
   background: $orange;
   transition: background 0.3s ease;
   color:white;
+
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 100px;
 }
 
 .btn-flat:hover {
