@@ -11,10 +11,10 @@
 .homepage {
   h1 {
     margin: 10px;
-    color: #FBAF00;
+    color: $orange;
   } h2 {
     margin: 10px;
-    color: #FFD639;
+    color: $lightorange;
   }
 }
 .paragraph {
@@ -27,11 +27,15 @@
 }
 
 .btn-flat {
-  font-size: 20px;
-  color: #E71D36;
-  margin: 15px;
-  padding: 12px 30px;
-  border-radius: 5px;
-  background: #D1603D;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orange;
+  transition: background 0.3s ease;
+  color:white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-flat:hover {
+  background: $lightorange;
+  color: white;
 }
