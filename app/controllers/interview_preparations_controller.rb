@@ -53,13 +53,9 @@ class InterviewPreparationsController < ApplicationController
     # FREQUENTLY ASKED QUESTIONS (COMPANY)
     # ------------------------------------
 
-
   #   @company_questions = []
-
   #   company = @interview_preparation.company.downcase.gsub(/\s/, '-')
-
   #   doc = Nokogiri::HTML(URI.open("https://fr.glassdoor.ch/Entretien/manor-questions-entretien-d-embauche-SRCH_KE0,5.htm"))
-
   #   doc.search('.questionText').each do |element|
   #     @company_questions << element.text
   #   end
@@ -67,9 +63,13 @@ class InterviewPreparationsController < ApplicationController
 
   def new
     @interview_preparation = InterviewPreparation.new
-    @interview_preparation.missions.build(label: "Mission principale")
+    @interview_preparation.missions.build(label: "Main mission")
     @interview_preparation.missions.build(label: "Mission 2")
     @interview_preparation.missions.build(label: "Mission 3")
+
+    @interview_preparation.hardskills.build(label: "Hard skill expected - 1")
+    @interview_preparation.hardskills.build(label: "Hard skill expected - 2")
+    @interview_preparation.hardskills.build(label: "Hard skill expected - 3")
   end
 
   def create
@@ -91,7 +91,8 @@ class InterviewPreparationsController < ApplicationController
     :job,
     :interview_date,
     :experience_expectation,
-    missions_attributes: [:id, :name, :label]
+    missions_attributes: [:id, :name, :label],
+    hardskills_attributes: [:id, :hard_skill, :label]
     )
   end
 end

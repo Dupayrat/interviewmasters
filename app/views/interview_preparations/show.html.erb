@@ -24,9 +24,13 @@
           </div>
         </div>
         <div class="col-6">
-          <div class="hard-skils">
+          <div class="hard-skills">
             <h2>Hard skills</h2>
-            <p>add hard skills</p>
+            <% counter = 1 %>
+            <% @interview_preparation.hardskills.each do |hardskill| %>
+              <p><%= counter %>. <%= hardskill.hard_skill %></p>
+              <% counter += 1 %>
+            <% end %>
           </div>
            <div class="attributes">
             <h2>Attributes</h2>
