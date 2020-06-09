@@ -13,9 +13,7 @@
             <h3>Interview preparation for <span class="font-weight-bold"><%= interview_preparation.company %></span></h3>
             <p> as <span class="job-title"><%= interview_preparation.job %></span></p>
           </div>
-          <img src="<% @images_results[1][:original] %>" alt="Logo">
-          <p><%= @images_results %></p>
-
+          <div class="company-logo" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
           </div>

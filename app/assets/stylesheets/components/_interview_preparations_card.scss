@@ -3,6 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 40px;
   a {
     color: black;
     text-decoration: none;
@@ -24,10 +25,18 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   p, h3 {
     margin: 0;
-  }
-  &:hover {
+  } &:hover {
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
     cursor: pointer;
+  } .company-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }
 .job-title {
