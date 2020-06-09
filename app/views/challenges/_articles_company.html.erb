@@ -4,8 +4,8 @@
     <% @company_articles.flatten.each do |article| %>
       <div class="article">
         <%= link_to article[:url], target: "_blank" do %>
-          <h4><%= article[:title]%></h4>
-          <p><%= article[:publication_date]%></p>
+          <h4><%= article[:title] %></h4>
+          <p><%= article[:publication_date].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
         <% end %>
       </div>
     <% end %>
