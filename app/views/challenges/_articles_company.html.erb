@@ -2,12 +2,12 @@
   <h3>Read top 6 articles</h3>
   <div class="articles">
     <% @company_articles.flatten.each do |article| %>
-      <div class="article">
-        <%= link_to article[:url], target: "_blank" do %>
-          <h4><%= article[:title] %></h4>
-          <p><%= article[:publication_date].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
-        <% end %>
-      </div>
+      <%= link_to article[:url], target: "_blank" do %>
+        <div class="article">
+            <h4><%= article[:title] %></h4>
+            <p><%= article[:publication_date].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
