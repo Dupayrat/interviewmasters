@@ -9,12 +9,23 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
 
   def index
     @interview_preparations = current_user.interview_preparations
+
+    # @interview_preparations.each do |interview_preparation|
+    #   params_logos_serapi = {
+    #     q: "#{interview_preparation.job} logo",
+    #     tbm: "isch",
+    #     ijn: "0",
+    #     api_key: ENV.fetch('SERAPI_API_KEY')
+    #   }
+    #   client = GoogleSearchResults.new(params_logos_serapi)
+    #   @images_results = client.get_hash[:images_results]
+    # end
   end
 
   def edit
   end
 
-   def update
+  def update
     @interview_preparation.update(interview_preparation_params)
     redirect_to interview_preparation_path(@interview_preparation)
   end
@@ -114,7 +125,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # SIMILAR PROFILES
     # ------------------------------------
 
-    params = {
+    params_profiles_serapi = {
         q: "#{@interview_preparation.job} site:linkedin.com/in",
         location: "Switzerland",
         hl: "en",
@@ -123,7 +134,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
         api_key: ENV.fetch('SERAPI_API_KEY')
     }
 
-    client = GoogleSearchResults.new(params)
+    client = GoogleSearchResults.new(params_profiles_serapi)
     @hash_results = client.get_hash
   end
 

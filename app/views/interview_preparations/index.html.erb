@@ -2,12 +2,18 @@
   <div class="cards-interview-prep">
     <% @interview_preparations.each do |interview_preparation| %>
       <% days_counter = (interview_preparation.interview_date - Date.today).to_i %>
+
+      <% params_logos_serapi = { q: "#{interview_preparation.company} logo", tbm: "isch", api_key: ENV.fetch('SERAPI_API_KEY') } %>
+      <% client = GoogleSearchResults.new(params_logos_serapi) %>
+      <% @images_results = client.get_hash[:images_results] %>
+
       <%= link_to interview_preparation_path(interview_preparation) do %>
         <div class="card-interview-prep">
           <div class="card-interview-prep-infos">
             <h3>Interview preparation for <span class="font-weight-bold"><%= interview_preparation.company %></span></h3>
             <p> as <span class="job-title"><%= interview_preparation.job %></span></p>
           </div>
+          <div class="company-logo" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
           </div>
