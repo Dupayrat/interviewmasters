@@ -1,6 +1,8 @@
 require 'json'
 require 'open-uri'
 require 'nokogiri'
+require 'google_search_results'
+
 
 class InterviewPreparationsController < ApplicationController
 before_action :set_interview_preparation, only: [:show, :edit, :update]
@@ -22,6 +24,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # -------------------
     # VIDEOS OF (COMPANY)
     # -------------------
+
     #@company_videos = []
 
     # urls = [
@@ -38,7 +41,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     #       url: "https://www.youtube.com/watch?v=#{video["id"]["videoId"]}"
     #        }
     #     end
-      # end
+    #   end
 
     # ------------------
     # ARTICLES (COMPANY)
@@ -101,6 +104,21 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   #     @company_questions << element.text
   #   end
 
+    # ------------------------------------
+    # SIMILAR PROFILES
+    # ------------------------------------
+
+    params = {
+        q: "#{@interview_preparation.job} site:linkedin.com/in",
+        location: "Switzerland",
+        hl: "en",
+        gl: "ch",
+        google_domain: "google.com",
+        api_key: ENV.fetch('SERAPI_API_KEY')
+    }
+
+    client = GoogleSearchResults.new(params)
+    @hash_results = client.get_hash
   end
 
   def new
