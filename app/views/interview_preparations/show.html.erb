@@ -8,13 +8,13 @@
       <p>
         Interview
         <% if @days_counter.negative? %>
-          <span class="font-weight-bold"><%= "Finished" %></span>
+          <span class="days-bold"><%= "Finished" %></span>
         <% elsif @days_counter == 1 %>
-          in <span class="font-weight-bold"><%= @days_counter %></span> day
+          in <span class="days-bold"><%= @days_counter %></span> day
         <% elsif @days_counter.zero? %>
-          <span class="font-weight-bold"><%= "Today" %></span>
+          <span class="days-bold"><%= "Today" %></span>
         <% else %>
-          in <span class="font-weight-bold"><%= @days_counter %></span> days
+          in <span class="days-bold"><%= @days_counter %></span> days
         <% end %>
       </p>
     </div>
