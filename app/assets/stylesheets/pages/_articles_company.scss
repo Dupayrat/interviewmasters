@@ -13,17 +13,11 @@
   margin-top: 20px;
   border-radius: 10px;
   border: 1px solid #d8d8d8;
-
   width: 100%;
   padding: 15px;
   &:hover {
-    background-color: $orange;
-    border: 1px solid $orange ;
-    h4 {
-      color: white;
-    } p {
-      color: white;
-    }
+    border: 0;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
   h4 {
     color: $gray;
