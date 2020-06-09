@@ -44,13 +44,12 @@
     </div>
   </div>
 
-
   <div class="challenges container">
     <div class="row">
       <div class="challenges-choices col-4">
         <p>
           <a class="btn-challenges" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Challenges
+            Next challenge
           </a>
         </p>
 
@@ -63,8 +62,17 @@
             <div class="challenge-card" data-toggle="collapse" href="#articles-company" role="button" aria-expanded="false" aria-controls="articles-company">
               <p>Read top 6 articles</p>
             </div>
-            <div class="challenge-card" data-toggle="collapse" href="#questions-company" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Frequently asked questions</p>
+            <div class="challenge-card" data-toggle="collapse" href="#questions-company_1on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>Company questions to prepare</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#questions-company_2on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>More questions 2/4</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#questions-company_3on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>More questions 3/4</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#questions-company_4on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>More questions 4/4</p>
             </div>
              <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Quizz</p>
@@ -101,11 +109,14 @@
 
       <div class="display-zone col-8 scrollable-display-zone">
         <div class="accordion" id="accordion">
-          <%= render 'challenges/videos_company'%>
-          <%= render 'challenges/articles_company'%>
-          <%= render 'challenges/questions_company'%>
-        </div>
 
+        <%= render 'challenges/articles_company'%>
+        <%= render 'challenges/questions_company1on4'%>
+        <%= render 'challenges/questions_company2on4'%>
+        <%= render 'challenges/questions_company3on4'%>
+        <%= render 'challenges/questions_company4on4'%>
+        </div>
+      </div>
       </div>
 
     </div>
