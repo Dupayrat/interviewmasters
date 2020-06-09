@@ -1,9 +1,12 @@
+.cards-container {
+  width: 800px;
+  margin: 0 auto;
+}
 .cards-interview-prep {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: 40px;
   a {
     color: black;
     text-decoration: none;
