@@ -8,18 +8,7 @@ class InterviewPreparationsController < ApplicationController
 before_action :set_interview_preparation, only: [:show, :edit, :update]
 
   def index
-    @interview_preparations = current_user.interview_preparations
-
-    # @interview_preparations.each do |interview_preparation|
-    #   params_logos_serapi = {
-    #     q: "#{interview_preparation.job} logo",
-    #     tbm: "isch",
-    #     ijn: "0",
-    #     api_key: ENV.fetch('SERAPI_API_KEY')
-    #   }
-    #   client = GoogleSearchResults.new(params_logos_serapi)
-    #   @images_results = client.get_hash[:images_results]
-    # end
+    @interview_preparations = current_user.interview_preparations.order('created_at DESC')
   end
 
   def edit
