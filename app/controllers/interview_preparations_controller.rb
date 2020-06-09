@@ -3,7 +3,6 @@ require 'open-uri'
 require 'nokogiri'
 require 'google_search_results'
 
-
 class InterviewPreparationsController < ApplicationController
 before_action :set_interview_preparation, only: [:show, :edit, :update]
 
@@ -14,18 +13,37 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   def edit
   end
 
-   def update
-    @interview_preparation.update(interview_preparation_params)
+  def update
+    #sauvegarder pour chaque question l'input du formulaire dans la table "candidate_works"
+
+    # -------------------
+    # CANDIDATE PREPARATION (COMPANY QUESTIONS)
+    # -------------------
+
+      # candidate_work0 = @interview_preparation.candidate_works[0]
+      # candidate_work0.question = params["interview_preparation"]["candidate_works_attributes"]["0"]["question"]
+      # candidate_work0.answer = params["interview_preparation"]["candidate_works_attributes"]["0"]["answer"]
+
+      # candidate_work0.save!
+      # raise
+
+    counter = 0
+    4.times do
+      candidate_work = @interview_preparation.candidate_works[counter]
+      candidate_work.question = params["interview_preparation"]["candidate_works_attributes"]["#{counter}"]["question"]
+      candidate_work.answer = params["interview_preparation"]["candidate_works_attributes"]["#{counter}"]["answer"]
+      candidate_work.save!
+      counter += 1
+    end
     redirect_to interview_preparation_path(@interview_preparation)
   end
 
   def show
-
     # -------------------
     # VIDEOS OF (COMPANY)
     # -------------------
 
-    #@company_videos = []
+    # @company_videos = []
 
     # urls = [
     #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
@@ -66,10 +84,35 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
 
     # QUESTIONS 1/4
 
+    # @candidate_work = CandidateWork.new
+    # @interview_preparation = InterviewPreparation.find(params[:id])
+    # @candidate_work.interview_preparation = @interview_preparation
+    # @candidate_work.question = "Why was #{@interview_preparation.company} created?"
+    # @candidate_work.save!
+
+    # @candidate_work = CandidateWork.new
+    # @interview_preparation = InterviewPreparation.find(params[:id])
+    # @candidate_work.interview_preparation = @interview_preparation
+    # @candidate_work.question = "What are #{@interview_preparation.company} 12 / 18 month objectives?"
+    # @candidate_work.save!
+
+    # @candidate_work = CandidateWork.new
+    # @interview_preparation = InterviewPreparation.find(params[:id])
+    # @candidate_work.interview_preparation = @interview_preparation
+    # @candidate_work.question = "What are #{@interview_preparation.company} challenges?"
+    # @candidate_work.save!
+
+    # @candidate_work = CandidateWork.new
+    # @interview_preparation = InterviewPreparation.find(params[:id])
+    # @candidate_work.interview_preparation = @interview_preparation
+    # @candidate_work.question = "What are #{@interview_preparation.company} recents achievements?"
+    # @candidate_work.save!
+
     @questions1on4 = [] << @interview_preparation.candidate_works.build(question: "Why was #{@interview_preparation.company} created?")
     @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} 12 / 18 month objectives?")
     @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} recents achievements?")
     @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} challenges?")
+
 
     # QUESTIONS 2 /4
 
@@ -85,13 +128,13 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} business model?")
     @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} vision, mission & ambition?")
 
-
     # QUESTIONS 4 /4
 
     @questions4on4 = [] << @interview_preparation.candidate_works.build(question: "SEE THE BIG PICTURE : ask about #{@interview_preparation.company} vision, values, objectives?")
     @questions4on4 << @interview_preparation.candidate_works.build(question: "STEP IN: ask about the job (challenges, objectives or pitfalls, team)")
     @questions4on4 << @interview_preparation.candidate_works.build(question: "MAKE IT PERSONAL : ask the interviewer about himself / herself")
     @questions4on4 << @interview_preparation.candidate_works.build(question: "BROADEN VIEW : question #{@interview_preparation.company} market conditions, competition, clients")
+
 
     # ------------------------------------
     # OLD --FREQUENTLY ASKED QUESTIONS (COMPANY)
@@ -125,7 +168,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     @interview_preparation = InterviewPreparation.new
     @interview_preparation.missions.build(label: "Main mission")
     @interview_preparation.missions.build(label: "Mission 2")
-    @interview_preparatxion.missions.build(label: "Mission 3")
+    @interview_preparation.missions.build(label: "Mission 3")
 
     @interview_preparation.hardskills.build(label: "Hard skill expected - 1")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 2")
@@ -151,13 +194,13 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
 
   def interview_preparation_params
     params.require(:interview_preparation).permit(
-    :company,
-    :job,
-    :interview_date,
-    :experience_expectation,
-    missions_attributes: [:id, :name, :label],
-    hardskills_attributes: [:id, :hard_skill, :label],
-    candidate_works_attributes: [:id, :question, :answer]
+      :company,
+      :job,
+      :interview_date,
+      :experience_expectation,
+      missions_attributes: [:id, :name, :label],
+      hardskills_attributes: [:id, :hard_skill, :label],
+      candidate_works_attributes: [:id, :question, :answer]
     )
   end
 end
