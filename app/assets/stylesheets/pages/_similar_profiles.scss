@@ -1,0 +1,12 @@
+#similar-profiles {
+  text-align: center;
+}
+.profiles-cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: left;
+  a {
+    text-decoration: none;
+  }
+}

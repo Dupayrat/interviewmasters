@@ -10,6 +10,7 @@
     "flatpickr": "^4.6.3",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "search-engine-client": "^1.2.6",
     "turbolinks": "^5.2.0",
     "typed.js": "^2.0.11"
   },

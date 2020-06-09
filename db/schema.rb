@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_082726) do
+ActiveRecord::Schema.define(version: 2020_06_08_130131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2020_06_08_082726) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "candidate_works", force: :cascade do |t|
+    t.string "question"
+    t.text "answer"
+    t.bigint "interview_preparation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interview_preparation_id"], name: "index_candidate_works_on_interview_preparation_id"
+  end
+
   create_table "coaches", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -33,6 +42,14 @@ ActiveRecord::Schema.define(version: 2020_06_08_082726) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_coaches_on_user_id"
+  end
+
+  create_table "hardskills", force: :cascade do |t|
+    t.text "hard_skill"
+    t.bigint "interview_preparation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interview_preparation_id"], name: "index_hardskills_on_interview_preparation_id"
   end
 
   create_table "interview_preparations", force: :cascade do |t|
@@ -76,7 +93,9 @@ ActiveRecord::Schema.define(version: 2020_06_08_082726) do
 
   add_foreign_key "bookings", "interview_preparations"
   add_foreign_key "bookings", "users"
+  add_foreign_key "candidate_works", "interview_preparations"
   add_foreign_key "coaches", "users"
+  add_foreign_key "hardskills", "interview_preparations"
   add_foreign_key "interview_preparations", "users"
   add_foreign_key "missions", "interview_preparations"
 end
