@@ -4,11 +4,8 @@ class CandidateWorksController < ApplicationController
     @candidate_work = CandidateWork.find(params[:id])
     @candidate_work.answer = params[:candidate_work][:answer]
 
-    if @candidate_work.save
-      redirect_to interview_preparation_path(@interview_preparation)
-    else
-      render 'interview_preparations/show'
-    end
+    @candidate_work.save
+
   end
 
   private
