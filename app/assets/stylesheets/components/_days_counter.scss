@@ -1,0 +1,26 @@
+.days-bold {
+  font-weight: bold;
+}
+
+.days-green {
+  color: #3ac162;
+}
+
+.days-yellow {
+  color: #FAD234;
+}
+
+.days-red {
+  color: red;
+}
+
+.days-today {
+  color: white;
+  background-color: #3ac162;
+  padding: 3px;
+}
+
+.days-finished {
+  border: 1px solid $gray;
+  padding: 3px;
+}
