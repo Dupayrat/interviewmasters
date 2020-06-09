@@ -5,7 +5,18 @@
         <h1><%= @interview_preparation.company %></h1>
         <h3><%= @interview_preparation.job %></h3>
       </div>
-      <p>Interview in <span class="font-weight-bold"><%= (@interview_preparation.interview_date - Date.today).to_i %></span> days</p>
+      <p>
+        Interview
+        <% if @days_counter.negative? %>
+          <span class="days-bold"><%= "Finished" %></span>
+        <% elsif @days_counter == 1 %>
+          in <span class="days-bold"><%= @days_counter %></span> day
+        <% elsif @days_counter.zero? %>
+          <span class="days-bold"><%= "Today" %></span>
+        <% else %>
+          in <span class="days-bold"><%= @days_counter %></span> days
+        <% end %>
+      </p>
     </div>
     <div class="container no-padding">
       <div class="row">
