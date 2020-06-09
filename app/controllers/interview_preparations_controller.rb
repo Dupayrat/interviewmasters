@@ -3,7 +3,6 @@ require 'open-uri'
 require 'nokogiri'
 require 'google_search_results'
 
-
 class InterviewPreparationsController < ApplicationController
 before_action :set_interview_preparation, only: [:show, :edit, :update]
 
@@ -31,7 +30,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # VIDEOS OF (COMPANY)
     # -------------------
 
-    #@company_videos = []
+    # @company_videos = []
 
     # urls = [
     #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
@@ -57,7 +56,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
     doc_json = Hash.from_xml(doc)
 
-    @company_articles = []<< doc_json["rss"]["channel"]["item"][0..5].map do |item|
+    @company_articles = [] << doc_json["rss"]["channel"]["item"][0..5].map do |item|
      {
       title: item["title"],
       url: item["link"],
@@ -70,34 +69,36 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # CANDIDATE PREPARATION (COMPANY QUESTIONS)
     # ------------------
 
+    @candidate_works = @interview_preparation.candidate_works
+
     # QUESTIONS 1/4
 
-    @questions1on4 = [] << @interview_preparation.candidate_works.build(question: "Why was #{@interview_preparation.company} created?")
-    @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} 12 / 18 months objectives?")
-    @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} recents achievements?")
-    @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} challenges?")
+    # @questions1on4 = [] << @interview_preparation.candidate_works.build(question: "Why was #{@interview_preparation.company} created?")
+    # @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} 12 / 18 months objectives?")
+    # @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} recents achievements?")
+    # @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} challenges?")
 
-    # QUESTIONS 2 /4
+    # # QUESTIONS 2 /4
 
-    @questions2on4 = [] << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} values & culture?")
-    @questions2on4 << @interview_preparation.candidate_works.build(question: "What attracts me in #{@interview_preparation.company}'s product or industry?")
-    @questions2on4 << @interview_preparation.candidate_works.build(question: "What are the challenges / skills I'd like to develop within #{@interview_preparation.company}?")
-    @questions2on4 << @interview_preparation.candidate_works.build(question: "Which personal story will I tell about my motivation for #{@interview_preparation.company}?")
+    # @questions2on4 = [] << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} values & culture?")
+    # @questions2on4 << @interview_preparation.candidate_works.build(question: "What attracts me in #{@interview_preparation.company}'s product or industry?")
+    # @questions2on4 << @interview_preparation.candidate_works.build(question: "What are the challenges / skills I'd like to develop within #{@interview_preparation.company}?")
+    # @questions2on4 << @interview_preparation.candidate_works.build(question: "Which personal story will I tell about my motivation for #{@interview_preparation.company}?")
 
-    # QUESTIONS 3 /4
+    # # QUESTIONS 3 /4
 
-    @questions3on4 = [] << @interview_preparation.candidate_works.build(question: "What value added does #{@interview_preparation.company} bring to the market?")
-    @questions3on4 << @interview_preparation.candidate_works.build(question: "Where does #{@interview_preparation.company} stand in terms of competition?")
-    @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} business model?")
-    @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} vision, mission & ambition?")
+    # @questions3on4 = [] << @interview_preparation.candidate_works.build(question: "What value added does #{@interview_preparation.company} bring to the market?")
+    # @questions3on4 << @interview_preparation.candidate_works.build(question: "Where does #{@interview_preparation.company} stand in terms of competition?")
+    # @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} business model?")
+    # @questions3on4 << @interview_preparation.candidate_works.build(question: "What is #{@interview_preparation.company} vision, mission & ambition?")
 
 
-    # QUESTIONS 4 /4
+    # # QUESTIONS 4 /4
 
-    @questions4on4 = [] << @interview_preparation.candidate_works.build(question: "SEE THE BIG PICTURE : ask about #{@interview_preparation.company} vision, values, objectives?")
-    @questions4on4 << @interview_preparation.candidate_works.build(question: "STEP IN: ask about the job (challenges, objectives or pitfalls, team)")
-    @questions4on4 << @interview_preparation.candidate_works.build(question: "MAKE IT PERSONAL : ask the interviewer about himself / herself")
-    @questions4on4 << @interview_preparation.candidate_works.build(question: "BROADEN VIEW : question #{@interview_preparation.company} market conditions, competition, clients")
+    # @questions4on4 = [] << @interview_preparation.candidate_works.build(question: "SEE THE BIG PICTURE : ask about #{@interview_preparation.company} vision, values, objectives?")
+    # @questions4on4 << @interview_preparation.candidate_works.build(question: "STEP IN: ask about the job (challenges, objectives or pitfalls, team)")
+    # @questions4on4 << @interview_preparation.candidate_works.build(question: "MAKE IT PERSONAL : ask the interviewer about himself / herself")
+    # @questions4on4 << @interview_preparation.candidate_works.build(question: "BROADEN VIEW : question #{@interview_preparation.company} market conditions, competition, clients")
 
     # ------------------------------------
     # OLD --FREQUENTLY ASKED QUESTIONS (COMPANY)
