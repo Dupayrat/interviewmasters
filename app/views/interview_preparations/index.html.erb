@@ -1,6 +1,7 @@
 <div class="container">
   <div class="cards-interview-prep">
     <% @interview_preparations.each do |interview_preparation| %>
+      <% days_counter = (interview_preparation.interview_date - Date.today).to_i %>
       <%= link_to interview_preparation_path(interview_preparation) do %>
         <div class="card-interview-prep">
           <div class="card-interview-prep-infos">
@@ -10,7 +11,18 @@
           <div class="progress">
             <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
           </div>
-          <p class="days-counter">Interview in <span class="font-weight-bold"><%= (interview_preparation.interview_date - Date.today).to_i %></span> days</p>
+          <p class="days-counter">
+            Interview
+            <% if days_counter.negative? %>
+              <span class="font-weight-bold"><%= "Finished" %></span>
+            <% elsif days_counter == 1 %>
+              in <span class="font-weight-bold"><%= days_counter %></span> day
+            <% elsif days_counter.zero? %>
+              <span class="font-weight-bold"><%= "Today" %></span>
+            <% else %>
+              in <span class="font-weight-bold"><%= days_counter %></span> days
+            <% end %>
+          </p>
         </div>
       <% end %>
     <% end %>
