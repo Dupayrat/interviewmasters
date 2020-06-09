@@ -35,10 +35,14 @@
   font-weight: bold;
   font-family: $body-font;
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   &:hover {
     text-decoration: none;
     color: white;
+  } .fa-caret-down {
+  font-size: 25px;
   }
 }

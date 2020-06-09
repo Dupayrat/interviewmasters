@@ -10,3 +10,11 @@
     cursor: pointer;
   }
 }
+.challenge-card.dropdown-triangle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .fa-caret-down {
+    font-size: 20px;
+  }
+}
