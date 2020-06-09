@@ -22,6 +22,12 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   def show
 
     # -------------------
+    # DAYS COUNTER
+    # -------------------
+
+    @days_counter = (@interview_preparation.interview_date - Date.today).to_i
+
+    # -------------------
     # VIDEOS OF (COMPANY)
     # -------------------
 
@@ -67,7 +73,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # QUESTIONS 1/4
 
     @questions1on4 = [] << @interview_preparation.candidate_works.build(question: "Why was #{@interview_preparation.company} created?")
-    @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} 12 / 18 month objectives?")
+    @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} 12 / 18 months objectives?")
     @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} recents achievements?")
     @questions1on4 << @interview_preparation.candidate_works.build(question: "What are #{@interview_preparation.company} challenges?")
 
@@ -125,7 +131,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     @interview_preparation = InterviewPreparation.new
     @interview_preparation.missions.build(label: "Main mission")
     @interview_preparation.missions.build(label: "Mission 2")
-    @interview_preparatxion.missions.build(label: "Mission 3")
+    @interview_preparation.missions.build(label: "Mission 3")
 
     @interview_preparation.hardskills.build(label: "Hard skill expected - 1")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 2")
