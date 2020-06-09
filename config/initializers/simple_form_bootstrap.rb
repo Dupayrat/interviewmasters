@@ -374,7 +374,7 @@ SimpleForm.setup do |config|
   #   b.use :label
   #   b.wrapper :input_group_tag, tag: 'div', class: 'input-group' do |ba|
   #     ba.optional :prepend
-  #     ba.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+  #     ba.use :input, class: 'form-control', error_class: 'is-invalid'
   #     ba.optional :append
   #   end
   #   b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
