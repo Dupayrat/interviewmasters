@@ -3,7 +3,6 @@ require 'open-uri'
 require 'nokogiri'
 require 'google_search_results'
 
-
 class InterviewPreparationsController < ApplicationController
 before_action :set_interview_preparation, only: [:show, :edit, :update]
 
@@ -31,7 +30,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # VIDEOS OF (COMPANY)
     # -------------------
 
-    #@company_videos = []
+    # @company_videos = []
 
     # urls = [
     #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
@@ -57,7 +56,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
     doc_json = Hash.from_xml(doc)
 
-    @company_articles = []<< doc_json["rss"]["channel"]["item"][0..5].map do |item|
+    @company_articles = [] << doc_json["rss"]["channel"]["item"][0..5].map do |item|
      {
       title: item["title"],
       url: item["link"],
@@ -69,6 +68,8 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # ------------------
     # CANDIDATE PREPARATION (COMPANY QUESTIONS)
     # ------------------
+
+    @candidate_work = @interview_preparation.candidate_works.first
 
     # QUESTIONS 1/4
 

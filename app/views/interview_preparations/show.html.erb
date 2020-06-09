@@ -7,15 +7,15 @@
       </div>
       <p>
         Interview
-        <% if @days_counter.negative? %>
+        <%# if @days_counter.negative? %>
           <span class="days-bold"><%= "Finished" %></span>
-        <% elsif @days_counter == 1 %>
-          in <span class="days-bold"><%= @days_counter %></span> day
-        <% elsif @days_counter.zero? %>
-          <span class="days-bold"><%= "Today" %></span>
-        <% else %>
-          in <span class="days-bold"><%= @days_counter %></span> days
-        <% end %>
+        <%# elsif @days_counter == 1 %>
+          in <span class="days-bold"><%#= @days_counter %></span> day
+        <%# elsif @days_counter.zero? %>
+          <span class="days-bold"><%#= "Today" %></span>
+        <%# else %>
+          in <span class="days-bold"><%#= @days_counter %></span> days
+        <%# end %>
       </p>
     </div>
     <div class="container no-padding">

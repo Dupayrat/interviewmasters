@@ -5,22 +5,16 @@
       <h3> #1. What are the key objectives & challenges of <%= @interview_preparation.company %>?</h3>
     </div>
     <div class="p-2 bd-highlight">
-      <%= simple_form_for @interview_preparation  do |f| %>
+
+      <%= simple_form_for([ @interview_preparation, @candidate_work ]) do |f| %>
+        <%= @candidate_work.question %>
+        <%= f.input :question, value: @candidate_work.question, as: :hidden %>
+        <%= f.input :answer, as: :text, value: @candidate_work.answer %>
         <%= button_tag type: 'submit', class: "btn btn-flat" do %>
             Save
             <i class="far fa-check-circle" aria-hidden="true"></i>
         <% end %>
-      </div>
-  </div>
-
-    <div class="form-group ">
-      <div>
-        <%= f.simple_fields_for :candidate_works, @questions1on4 do |cw| %>
-          <%= cw.input :question, value: cw.object.question, label: false, disabled: true %>
-          <%= cw.input :answer, as: :text, label: false %>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-
+  </div>
 </div>
