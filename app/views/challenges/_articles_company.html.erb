@@ -1,5 +1,10 @@
 <div class="collapse" id="articles-company" data-parent="#accordion">
-  <h3>Read top 6 articles</h3>
+  <h3>Read top 6 articles
+    <div class="text-center">
+        <!-- Animated button -->
+        <a class="animated-btn text-white" href="#"><i class="fa fa-play"></i></a>
+    </div>
+    </h3>
   <div class="articles">
     <% @company_articles.flatten.each do |article| %>
       <%= link_to article[:url], target: "_blank" do %>
