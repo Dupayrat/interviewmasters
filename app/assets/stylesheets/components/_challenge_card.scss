@@ -18,3 +18,11 @@
     font-size: 20px;
   }
 }
+
+.active-challenge-card {
+  background-color: $orange;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  p {
+    color: white;
+  }
+}
