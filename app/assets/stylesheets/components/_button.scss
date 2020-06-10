@@ -48,7 +48,22 @@
   }
 }
 
-.btn-active:focus {
-  background-color: green;
+.btn-question {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 0px 0 4px 4px;
+  background-color: $orange;
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-active {
+  color: $mediumgray;
+  padding: 8px 24px;
+  border: 1px solid $mediumgray;
+  border-radius: 0px 0 4px 4px;
+  background-color: white;
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
 }
 
