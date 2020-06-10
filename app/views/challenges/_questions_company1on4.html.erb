@@ -4,7 +4,7 @@
   </div>
 
   <div class="form-group">
-    <% @candidate_works.each do |candidate_work| %>
+    <% @candidate_works1.flatten.each do |candidate_work| %>
 
       <%= simple_form_for([ @interview_preparation, candidate_work ]) do |f| %>
         <%= candidate_work.question %>
