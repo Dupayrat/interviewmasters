@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_114000) do
+ActiveRecord::Schema.define(version: 2020_06_10_150826) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "interview_date"
+    t.integer "price_per_hour"
+    t.integer "duration"
+    t.bigint "interview_preparation_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["interview_preparation_id"], name: "index_bookings_on_interview_preparation_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
 
   create_table "candidate_works", force: :cascade do |t|
     t.string "question"
@@ -79,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_06_10_114000) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "interview_preparations"
+  add_foreign_key "bookings", "users"
   add_foreign_key "candidate_works", "interview_preparations"
   add_foreign_key "challenges", "interview_preparations"
   add_foreign_key "hardskills", "interview_preparations"
