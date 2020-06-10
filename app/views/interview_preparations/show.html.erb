@@ -59,12 +59,13 @@
     <div class="row">
       <div class="challenges-choices col-4">
         <p>
-          <a class="btn-challenges" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Next challenge
+          <a class="btn-challenges" data-toggle="collapse" href="#collapseChallenges" role="button" aria-expanded="false" aria-controls="collapseExample">
+            Challenges
+            <i class="fas fa-caret-down"></i>
           </a>
         </p>
 
-        <div class="collapse show scrollable" id="collapseExample">
+        <div class="collapse show scrollable" id="collapseChallenges">
           <div class="Get-company-info">
             <h4>Get info about <span class="font-weight-bold"><%= @interview_preparation.company %></span></h4>
             <div class="challenge-card" data-toggle="collapse" href="#videos-company" role="button" aria-expanded="false" aria-controls="videos-company">
@@ -73,18 +74,31 @@
             <div class="challenge-card" data-toggle="collapse" href="#articles-company" role="button" aria-expanded="false" aria-controls="articles-company">
               <p>Read top 6 articles</p>
             </div>
-            <div class="challenge-card" data-toggle="collapse" href="#questions-company_1on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+            <div class="challenge-card dropdown-triangle" data-toggle="collapse" href="#collapseQuestions" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Company questions to prepare</p>
+              <i class="fas fa-caret-down"></i>
             </div>
-            <div class="challenge-card" data-toggle="collapse" href="#questions-company_2on4" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>More questions 2/4</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#questions-company_3on4" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>More questions 3/4</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#questions-company_4on4" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>More questions 4/4</p>
-            </div>
+
+              <div class="collapse" id="collapseQuestions">
+                <div class="challenge-card" data-toggle="collapse" href="#questions-company_1on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+                  <p>Questions 1/4</p>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
+                    <label class="form-check-label" for="defaultCheck1">
+                    </label>
+                  </div>
+                </div>
+                <div class="challenge-card" data-toggle="collapse" href="#questions-company_2on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+                  <p>Questions 2/4</p>
+                </div>
+                <div class="challenge-card" data-toggle="collapse" href="#questions-company_3on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+                  <p>Questions 3/4</p>
+                </div>
+                <div class="challenge-card" data-toggle="collapse" href="#questions-company_4on4" role="button" aria-expanded="false" aria-controls="collapseTest">
+                  <p>Questions 4/4</p>
+                </div>
+              </div>
+
              <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Quizz</p>
             </div>

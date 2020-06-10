@@ -31,10 +31,16 @@ import "../plugins/flatpickr";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { days_counter_color } from './days_counter';
+import { challenge_card_color } from './active_challenge_card';
+import { active_btn_question } from './active_btn_question';
+import { progress_checkbox } from './progress_checkbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   days_counter_color()
+  challenge_card_color()
+  active_btn_question()
+  progress_checkbox()
 });
 

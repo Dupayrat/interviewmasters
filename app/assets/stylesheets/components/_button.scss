@@ -35,11 +35,16 @@
   font-weight: bold;
   font-family: $body-font;
   text-decoration: none;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
+  font-size: 18px;
   &:hover {
     text-decoration: none;
     color: white;
+  } .fa-caret-down {
+  font-size: 25px;
   }
 }
 
@@ -71,5 +76,23 @@
   }
   text-align: center;
   margin-left: 90px;
+}
+.btn-question {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 0px 0 4px 4px;
+  background-color: $orange;
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-active {
+  color: $mediumgray;
+  padding: 8px 24px;
+  border: 1px solid $mediumgray;
+  border-radius: 0px 0 4px 4px;
+  background-color: white;
+  transition: background 0.3s ease;
+  margin-bottom: 20px;
 }
 

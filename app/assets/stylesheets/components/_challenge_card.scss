@@ -3,6 +3,8 @@
   padding: 15px;
   margin-bottom: 10px;
   border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
   p {
     margin: 0;
   } &:hover {
@@ -10,3 +12,21 @@
     cursor: pointer;
   }
 }
+.challenge-card.dropdown-triangle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .fa-caret-down {
+    font-size: 20px;
+  }
+}
+
+.active-challenge-card {
+  background-color: $orange;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  p {
+    color: white;
+  }
+}
+
+

@@ -4,8 +4,8 @@
     <% @hash_results[:organic_results].first(6).each do |el| %>
       <%= link_to el[:link], target: "_blank" do %>
         <div class="profile-card">
-          <img src="https://optimiztemps.com/wp-content/uploads/2015/02/linkedin-logo-900x900.png" alt="Linkedin logo">
           <div class="profile-card-content">
+            <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" alt="Linkedin logo">
             <h5><%= el[:title].gsub(/\| linkedin/i, "") %></h5>
             <p><%= el[:snippet] %></p>
           </div>
