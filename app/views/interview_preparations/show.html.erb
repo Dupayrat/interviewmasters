@@ -96,15 +96,43 @@
               <div class="collapse" id="collapseQuestions">
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_1on4" role="button" aria-expanded="false" aria-controls="collapseTest">
                   <p>Objectives and challenges</p>
+                  <div class="done">
+                    <% if @interview_preparation.challenges.exists?(name: "Objectives and challenges") %>
+                      <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= link_to "Mark as done", interview_preparation_challenges_path(@interview_preparation, name: "Objectives and challenges"), method: :post, remote: true %>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_2on4" role="button" aria-expanded="false" aria-controls="collapseTest">
                   <p>Motivations & vision</p>
+                  <div class="done">
+                    <% if @interview_preparation.challenges.exists?(name: "Motivations & vision") %>
+                      <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= link_to "Mark as done", interview_preparation_challenges_path(@interview_preparation, name: "Motivations & vision"), method: :post, remote: true %>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_3on4" role="button" aria-expanded="false" aria-controls="collapseTest">
                   <p>Business model & competition</p>
+                  <div class="done">
+                    <% if @interview_preparation.challenges.exists?(name: "Business model & competition") %>
+                      <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= link_to "Mark as done", interview_preparation_challenges_path(@interview_preparation, name: "Business model & competition"), method: :post, remote: true %>
+                    <% end %>
+                  </div>
                 </div>
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_4on4" role="button" aria-expanded="false" aria-controls="collapseTest">
                   <p>Questions for the interviewer</p>
+                  <div class="done">
+                    <% if @interview_preparation.challenges.exists?(name: "Questions for the interviewer") %>
+                      <i class="fas fa-check"></i>
+                    <% else %>
+                      <%= link_to "Mark as done", interview_preparation_challenges_path(@interview_preparation, name: "Questions for the interviewer"), method: :post, remote: true %>
+                    <% end %>
+                  </div>
                 </div>
               </div>
           </div>
