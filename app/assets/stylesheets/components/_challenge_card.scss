@@ -27,12 +27,12 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   p {
     color: white;
-  } .done > a {
+  } .done .fa-square {
     color: white;
     &:hover {
       color: black;
     }
-  } .done > .fa-check {
+  } .done > .fa-check-square {
     color: white;
   }
 }
@@ -45,13 +45,18 @@
   display: flex;
   align-items: center;
   a {
+    display: flex;
+    align-items: center;
+  }
+  .fa-square {
     color: $gray;
-    font-size: 12px;
+    font-size: 16px;
     &:hover {
     color: $orange;
     text-decoration: none;
     }
-  } .fa-check {
+  } .fa-check-square {
     color: #3ac162;
+    font-size: 16px;
   }
 }
