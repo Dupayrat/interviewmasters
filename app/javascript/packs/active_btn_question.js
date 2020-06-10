@@ -1,9 +1,12 @@
 const active_btn_question = () => {
-  const question_btn = document.querySelector(".btn-question");
-  question_btn.addEventListener("click", (event) => {
-    question_btn.innerText = "Saved!";
-    question_btn.classList.remove("btn-question");
-    question_btn.classList.add("active-btn");
+  const questions_btn = document.querySelectorAll(".btn-question");
+
+  questions_btn.forEach((question_btn) => {
+    question_btn.addEventListener("click", (event) => {
+      question_btn.innerHTML = "Saved!";
+      question_btn.classList.remove("btn-question");
+      question_btn.classList.add("btn-active");
+    });
   });
 };
 

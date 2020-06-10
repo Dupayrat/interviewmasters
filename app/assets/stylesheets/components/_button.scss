@@ -52,15 +52,16 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $orange;
+  background-color: $orange;
   transition: background 0.3s ease;
-  color:white
 }
 
 .btn-active {
-  background-color: none;
-  color: $gray;
+  color: $mediumgray;
   padding: 8px 24px;
-  border: 2px solid $gray;
+  border: 1px solid $mediumgray;
+  border-radius: 4px;
+  background-color: white;
+  transition: background 0.3s ease;
 }
 
