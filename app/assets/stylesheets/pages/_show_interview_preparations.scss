@@ -30,6 +30,16 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  .company-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0px auto 0px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 .experience-expectations {
   p {
@@ -86,4 +96,9 @@
 }
 #collapseQuestions {
   padding-right: 30px;
+}
+
+.em,.em-svg {
+  height:30px !important;
+  width:30px !important;;
 }

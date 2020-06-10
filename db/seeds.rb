@@ -68,17 +68,18 @@ alan_sales = InterviewPreparation.new(
   )
 alan_sales.save!
 
-migros_webdev = InterviewPreparation.new(
+backmarket_webdev = InterviewPreparation.new(
   company: "Back Market",
   job: "Web Developer Full Stack",
   interview_date: Date.parse("01/07/2020"),
   experience_expectation: "Computer sciences degrees and 2 years work on Rails & Javascript",
   missions_attributes: [{name:"Improve front end using Javascript & Rails tech"}, {name:"Develop new functionalities"}, {name:"Develop back-end feature from conception to delivery"}],
+  hardskills_attributes: [{hard_skill:"Javascript"}, {hard_skill:"CSS"}, {hard_skill:"IA (notions)"}],
 
   # UPLOAD JOB DESC:
   user: anthony
   )
-migros_webdev.save!
+backmarket_webdev.save!
 
 protonmail_pm = InterviewPreparation.new(
   company: "Proton Mail",
@@ -86,6 +87,8 @@ protonmail_pm = InterviewPreparation.new(
   interview_date: Date.parse("15/06/2020"),
   experience_expectation: "First work experience in tech companies, 1 year minimum",
   missions_attributes: [{name:"Design a mobile app in 12 months for fintech"}, {name:"Lead product priorization for fintech"}, {name:"Be the scrum master for team, leading stand up meetings"}],
+  hardskills_attributes: [{hard_skill:"iOS"}, {hard_skill:"Python"}, {hard_skill:"SCRUM"}],
+
   # UPLOAD JOB DESC:
   user: anthony
   )
@@ -98,16 +101,32 @@ doctolib_sales = InterviewPreparation.new(
   experience_expectation: "Previous experience in sales, hitting targets, in fast-paced environments",
   # UPLOAD JOB DESC:
   missions_attributes: [{name:"Hitting sales target in B2B"}, {name:"Training your team to hit sales target"}, {name:"Ongoing improvement over methods & processes"}],
+  hardskills_attributes: [{hard_skill:"Sales B2B"}, {hard_skill:"SaaS"}, {hard_skill:"Negotiation"}],
+
   user: anthony
   )
 doctolib_sales.save!
+
+toogoodtogo_mobiledev = InterviewPreparation.new(
+  company: "TooGoodToGo",
+  job: "Mobile Developer",
+  interview_date: Date.parse("10/05/2020"),
+  experience_expectation: "Develop killer mobil app features",
+  # UPLOAD JOB DESC:
+  missions_attributes: [{name:"Develop new mobile features Android & iOS"}, {name:"Maintain security and release new versions"}, {name:"Act as scrum Master for the team"}],
+  hardskills_attributes: [{hard_skill:"iOS"}, {hard_skill:"Android"}, {hard_skill:"SCRUM"}],
+
+  user: anthony
+  )
+toogoodtogo_mobiledev.save!
 
 manomano_software = InterviewPreparation.new(
   company: "ManoMano",
   job: "Software Engineer",
   interview_date: Date.parse("20/08/2020"),
   experience_expectation: "5 years as a software engineer developping products. Good knowledge of PHP",
-  missions_attributes: [{name:"Maintain existing website"}, {name:"Develop new features for ManoMano website"}, {name:"Adapt user story to current needs"}],
+  missions_attributes: [{name:"Analyze, design and develop tests and test-automation suites."}, {name:"Provide ongoing maintenance, support and enhancements in existing systems and platforms."}, {name:"Design and develop a processing platform using various configuration management technologies."}],
+  hardskills_attributes: [{hard_skill:"Database (Posgresql, Sqlite3)"}, {hard_skill:"C++"}, {hard_skill:"Java"}],
 
   # UPLOAD JOB DESC:
   user: anthony
