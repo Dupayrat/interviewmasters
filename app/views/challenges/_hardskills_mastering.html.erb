@@ -1,0 +1,9 @@
+<div class="collapse" id="hardskills_mastering" data-parent="#accordion">
+  <div class="p-2 bd-highlight">
+      <h3> Prepare examples for your hardskills</h3>
+  </div>
+    <% @interview_preparation.hardskills.each do |hardskill|%>
+    <p><%= hardskill.hard_skill %></p>
+    <% end %>
+</div>
+

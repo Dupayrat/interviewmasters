@@ -43,9 +43,9 @@
               <% counter += 1 %>
             <% end %>
           </div>
-           <div class="attributes">
-            <h2>Attributes</h2>
-            <p>add attributes</p>
+           <div class="soft-skills">
+            <h2>Soft skills</h2>
+            <p>add soft skills</p>
           </div>
         </div>
       </div>
@@ -81,12 +81,6 @@
 
               <div class="collapse" id="collapseQuestions">
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_1on4" role="button" aria-expanded="false" aria-controls="collapseTest">
-                  <p>Key objectives & challenges</p>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
-                    <label class="form-check-label" for="defaultCheck1">
-                    </label>
-                  </div>
                 </div>
                 <div class="challenge-card" data-toggle="collapse" href="#questions-company_2on4" role="button" aria-expanded="false" aria-controls="collapseTest">
                   <p>Motivations & vision</p>
@@ -121,8 +115,20 @@
 
           <div class="Get-job-info">
             <h4>Show you're a great fit</h4>
+            <div class="challenge-card" data-toggle="collapse" href="#star_approach" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>Use the STAR approach</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#hardskills_mastering" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>Show you master the hard skills needed</p>
+            </div>
             <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Add cards</p>
+              <p>Show you have the expected soft skills</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>Prove your experience is relevant</p>
+            </div>
+            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
+              <p>What's your fire note?</p>
             </div>
           </div>
         </div>
@@ -136,6 +142,8 @@
           <%= render 'challenges/questions_company3on4'%>
           <%= render 'challenges/questions_company4on4'%>
           <%= render 'challenges/similar_profiles'%>
+          <%= render 'challenges/star_approach'%>
+          <%= render 'challenges/hardskills_mastering'%>
         </div>
       </div>
     </div>
