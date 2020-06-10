@@ -5,6 +5,7 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   p {
     margin: 0;
   } &:hover {
@@ -26,7 +27,31 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   p {
     color: white;
+  } .done > a {
+    color: white;
+    &:hover {
+      color: black;
+    }
+  } .done > .fa-check {
+    color: white;
   }
 }
 
+.active-challenge-card > .fa-caret-down {
+  color: white;
+}
 
+.done {
+  display: flex;
+  align-items: center;
+  a {
+    color: $gray;
+    font-size: 12px;
+    &:hover {
+    color: $orange;
+    text-decoration: none;
+    }
+  } .fa-check {
+    color: #3ac162;
+  }
+}
