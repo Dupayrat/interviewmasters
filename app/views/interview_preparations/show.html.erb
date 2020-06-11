@@ -1,18 +1,22 @@
 <div class="container">
   <div class="interview-prep-infos">
     <div class="general-infos">
-      <div>
+      <div class ="box1">
         <h1><%= @interview_preparation.company %></h1>
         <h3><%= @interview_preparation.job %></h3>
       </div>
+        <% params_logos_serapi = { q: "#{@interview_preparation.company} logo", tbm: "isch", api_key: ENV.fetch('SERAPI_API_KEY') } %>
+        <% client = GoogleSearchResults.new(params_logos_serapi) %>
+        <% @images_results = client.get_hash[:images_results] %>
+        <div class="company-logo box1" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
       <p>
         Interview
         <% if @days_counter.negative? %>
-          <span class="days-bold"><%= "Finished" %></span>
+          <span class="days-bold box2"><%= "Finished" %></span>
         <% elsif @days_counter == 1 %>
-          in <span class="days-bold"><%= @days_counter %></span> day
+          in <span class="days-bold box2"><%= @days_counter %></span> day
         <% elsif @days_counter.zero? %>
-          <span class="days-bold"><%= "Today" %></span>
+          <span class="days-bold box2"><%= "Today" %></span>
         <% else %>
           in <span class="days-bold"><%= @days_counter %></span> days
         <% end %>
@@ -22,11 +26,17 @@
       <div class="row">
         <div class="col-6">
           <div class="experience-expectations">
-            <h2>Experience expectations</h2>
+            <h2>Experience expectations
+            <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+            <i class="em em-spades" aria-role="presentation" aria-label="BLACK SPADE SUIT"></i>
+            </h2>
             <p><%= @interview_preparation.experience_expectation %>
           </div>
           <div class="missions">
-            <h2>Missions</h2>
+            <h2>Missions
+              <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+              <i class="em em-diamonds" aria-role="presentation" aria-label="BLACK DIAMOND SUIT"></i>
+            </h2>
             <% counter = 1 %>
             <% @interview_preparation.missions.each do |mission| %>
               <p><%= counter %>. <%= mission.name %></p>
@@ -36,7 +46,10 @@
         </div>
         <div class="col-6">
           <div class="hard-skills">
-            <h2>Hard skills</h2>
+            <h2>Hard skills
+              <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+              <i class="em em-hearts" aria-role="presentation" aria-label="BLACK CLUB SUIT"></i>
+          </h2>
             <% counter = 1 %>
             <% @interview_preparation.hardskills.each do |hardskill| %>
               <p><%= counter %>. <%= hardskill.hard_skill %></p>
@@ -44,7 +57,10 @@
             <% end %>
           </div>
            <div class="soft-skills">
-            <h2>Soft skills</h2>
+            <h2>Soft skills
+            <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+              <i class="em em-clubs" aria-role="presentation" aria-label="BLACK CLUB SUIT"></i>
+            </h2>
             <p>add soft skills</p>
           </div>
         </div>
