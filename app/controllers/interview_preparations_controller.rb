@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'google_search_results'
 
 class InterviewPreparationsController < ApplicationController
-before_action :set_interview_preparation, only: [:show, :edit, :update]
+before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_articles]
 
   def index
     @interview_preparations = current_user.interview_preparations.order('created_at DESC')
@@ -19,7 +19,11 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   end
 
   def show
-
+    if @company_articles.nil?
+      @company_articles = []
+    else
+      @company_articles
+    end
     # -------------------
     # DAYS COUNTER
     # -------------------
@@ -47,23 +51,6 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     #        }
     #     end
     #   end
-
-    # ------------------
-    # ARTICLES (COMPANY)
-    # ------------------
-
-    @company_articles = []
-    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
-    doc_json = Hash.from_xml(doc)
-
-    @company_articles = [] << doc_json["rss"]["channel"]["item"][0..5].map do |item|
-     {
-      title: item["title"],
-      url: item["link"],
-      source: item["source"],
-      publication_date: item["pubDate"]
-    }
-    end
 
     # ------------------
     # CANDIDATE PREPARATION (COMPANY QUESTIONS)
@@ -123,6 +110,26 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     else
       render :new
     end
+  end
+
+  def scrap_articles
+    # ------------------
+    # ARTICLES (COMPANY)
+    # ------------------
+    @company_articles = []
+    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
+    doc_json = Hash.from_xml(doc)
+
+    @company_articles << doc_json["rss"]["channel"]["item"][0..5].map do |item|
+    {
+      title: item["title"],
+      url: item["link"],
+      source: item["source"],
+      publication_date: item["pubDate"]
+    }
+    end
+    binding.pry
+    redirect_to interview_preparation_path(@interview_preparation)
   end
 
   private

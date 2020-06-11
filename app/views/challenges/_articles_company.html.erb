@@ -2,9 +2,11 @@
   <h3>Read top 6 articles
     <div class="text-center">
         <!-- Animated button -->
-        <a class="animated-btn text-white" href="#"><i class="fa fa-play"></i></a>
+        <%= link_to scrap_articles_interview_preparations_path(id: params[:id]),remote:true, class: "animated-btn text-white" do %>
+          <i class="fa fa-play"></i>
+        <% end %>
     </div>
-    </h3>
+  </h3>
   <div class="articles">
     <% @company_articles.flatten.each do |article| %>
       <%= link_to article[:url], target: "_blank" do %>
@@ -12,7 +14,10 @@
             <h4><%= article[:title] %></h4>
             <p><%= article[:publication_date].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
         </div>
+
       <% end %>
     <% end %>
   </div>
 </div>
+
+<% console %>
