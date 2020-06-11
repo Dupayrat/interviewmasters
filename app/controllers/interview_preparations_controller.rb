@@ -21,6 +21,14 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   def show
 
     # -------------------
+    # PROGRESS BAR
+    # -------------------
+
+    @progress_bar = 0
+    count = @interview_preparation.challenges.count
+    @progress_bar = count * (100.fdiv 7)
+
+    # -------------------
     # DAYS COUNTER
     # -------------------
 
@@ -123,6 +131,12 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     else
       render :new
     end
+  end
+
+  def destroy
+    @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation.destroy
+    redirect_to interview_preparations_path
   end
 
   private

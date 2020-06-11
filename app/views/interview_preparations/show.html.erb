@@ -67,7 +67,7 @@
       </div>
     </div>
     <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+      <div class="progress-bar" role="progressbar" style="width: <%= @progress_bar %>%; background-color: #3ac162;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= @progress_bar.round %>%</div>
     </div>
   </div>
 
@@ -188,6 +188,15 @@
             <h4>Show you're a great fit</h4>
             <div class="challenge-card" data-toggle="collapse" href="#star_approach" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Use the STAR approach</p>
+              <div class="done">
+                <% if @interview_preparation.challenges.exists?(name: "Use the STAR approach") %>
+                  <i class="far fa-check-square"></i>
+                <% else %>
+                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Use the STAR approach"), method: :post, remote: true, title: "Mark as done" do %>
+                    <i class="far fa-square"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
             <div class="challenge-card" data-toggle="collapse" href="#hardskills_mastering" role="button" aria-expanded="false" aria-controls="collapseTest">
               <p>Show you master the hard skills needed</p>

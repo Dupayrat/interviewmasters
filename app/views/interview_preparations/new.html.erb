@@ -54,7 +54,7 @@
 
     <div class="form-group ">
       <%= f.submit "Start my interview preparation work", class: "btn btn-flat" %>
-      <%= f.button :button, "Cancel", type: "reset", class: "btn btn-ghost" %>
+      <%= link_to "Cancel", interview_preparations_path, class: "btn btn-ghost" %>
     </div>
   <% end %>
 </div>
