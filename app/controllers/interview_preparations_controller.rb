@@ -26,7 +26,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
 
     @progress_bar = 0
     count = @interview_preparation.challenges.count
-    @progress_bar = count * (100.fdiv 7)
+    @progress_bar = count * (100.fdiv 8)
 
     # -------------------
     # DAYS COUNTER
