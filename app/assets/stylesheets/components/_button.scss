@@ -55,6 +55,9 @@
   background-color: $orange;
   transition: background 0.3s ease;
   margin-bottom: 20px;
+  &:hover {
+    color: black;
+  }
 }
 
 .btn-active {
