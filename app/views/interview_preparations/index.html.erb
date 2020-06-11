@@ -36,27 +36,6 @@
               </p>
             </div>
           </div>
-          <div class="company-logo" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
-          <div class="progress">
-            <% progress_bar = 0 %>
-            <% count = interview_preparation.challenges.count %>
-            <% progress_bar = count * (100.fdiv 7) %>
-            <div class="progress-bar" role="progressbar" style="width: <%= progress_bar %>%; background-color: #3ac162;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_bar.round %>%</div>
-          </div>
-          <p class="days-counter">
-            Interview
-            <% if days_counter.negative? %>
-              <span class="days-bold"><%= "Finished" %></span>
-            <% elsif days_counter == 1 %>
-              in <span class="days-bold"><%= days_counter %></span> day
-            <% elsif days_counter.zero? %>
-              <span class="days-bold"><%= "Today" %></span>
-            <% else %>
-              in <span class="days-bold"><%= days_counter %></span> days
-            <% end %>
-          </p>
-        </div>
-      <% end %>
         <% end %>
         <%= link_to interview_preparation_path(interview_preparation), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-prep" do %>
           <i class="fas fa-trash-alt"></i>
