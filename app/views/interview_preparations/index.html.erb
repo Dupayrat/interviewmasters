@@ -37,7 +37,7 @@
             </div>
           </div>
         <% end %>
-        <%= link_to interview_preparation_path(interview_preparation), method: :delete, data: { confirm: "Are you sure?" }, class: "delete-prep" do %>
+        <%= link_to interview_preparation_path(interview_preparation), method: :delete, data: { confirm: "Do you really want to delete #{interview_preparation.company} interview preparation?" }, class: "delete-prep" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
