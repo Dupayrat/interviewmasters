@@ -1,7 +1,25 @@
 <div class="collapse" id="similar-profiles" data-parent="#accordion">
   <h3>Similar profiles</h3>
+  <h4>
+    <span class="font-weight-bold"><%= @interview_preparation.job %></span> at <span class="font-weight-bold"><%= @interview_preparation.company %></span>
+  </h4>
   <div class="profiles-cards">
-    <% @hash_results[:organic_results].first(6).each do |el| %>
+    <% @hash_results_job_and_company[:organic_results].first(4).each do |el| %>
+      <%= link_to el[:link], target: "_blank" do %>
+        <div class="profile-card">
+          <div class="profile-card-content">
+            <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-linkedin-circle-512.png" alt="Linkedin logo">
+            <h5><%= el[:title].gsub(/\| linkedin/i, "") %></h5>
+            <p><%= el[:snippet] %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <h4>Other <span class="font-weight-bold"><%= @interview_preparation.job %></span></h4>
+  <div class="profiles-cards">
+    <% @hash_results_job[:organic_results].first(4).each do |el| %>
       <%= link_to el[:link], target: "_blank" do %>
         <div class="profile-card">
           <div class="profile-card-content">

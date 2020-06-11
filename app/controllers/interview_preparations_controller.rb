@@ -98,7 +98,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # SIMILAR PROFILES
     # ------------------------------------
 
-    params_profiles_serapi = {
+    params_job_serapi = {
         q: "#{@interview_preparation.job} site:linkedin.com/in",
         location: "Switzerland",
         hl: "en",
@@ -106,9 +106,19 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
         google_domain: "google.com",
         api_key: ENV.fetch('SERAPI_API_KEY')
     }
+    client = GoogleSearchResults.new(params_job_serapi)
+    @hash_results_job = client.get_hash
 
-    client = GoogleSearchResults.new(params_profiles_serapi)
-    @hash_results = client.get_hash
+    params_job_company_serapi = {
+        q: "#{@interview_preparation.job} #{@interview_preparation.company} site:linkedin.com/in",
+        location: "Switzerland",
+        hl: "en",
+        gl: "ch",
+        google_domain: "google.com",
+        api_key: ENV.fetch('SERAPI_API_KEY')
+    }
+    client = GoogleSearchResults.new(params_job_company_serapi)
+    @hash_results_job_and_company = client.get_hash
   end
 
   def new
