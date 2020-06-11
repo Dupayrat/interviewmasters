@@ -21,6 +21,14 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
   def show
     @company_articles = params[:company_articles] || nil
     # -------------------
+    # PROGRESS BAR
+    # -------------------
+
+    @progress_bar = 0
+    count = @interview_preparation.challenges.count
+    @progress_bar = count * (100.fdiv 7)
+
+    # -------------------
     # DAYS COUNTER
     # -------------------
 
@@ -73,7 +81,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     # SIMILAR PROFILES
     # ------------------------------------
 
-    params_profiles_serapi = {
+    params_job_serapi = {
         q: "#{@interview_preparation.job} site:linkedin.com/in",
         location: "Switzerland",
         hl: "en",
@@ -81,9 +89,19 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
         google_domain: "google.com",
         api_key: ENV.fetch('SERAPI_API_KEY')
     }
+    client = GoogleSearchResults.new(params_job_serapi)
+    @hash_results_job = client.get_hash
 
-    client = GoogleSearchResults.new(params_profiles_serapi)
-    @hash_results = client.get_hash
+    params_job_company_serapi = {
+        q: "#{@interview_preparation.job} #{@interview_preparation.company} site:linkedin.com/in",
+        location: "Switzerland",
+        hl: "en",
+        gl: "ch",
+        google_domain: "google.com",
+        api_key: ENV.fetch('SERAPI_API_KEY')
+    }
+    client = GoogleSearchResults.new(params_job_company_serapi)
+    @hash_results_job_and_company = client.get_hash
   end
 
   def new
@@ -125,6 +143,12 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
       }
     end
     redirect_to interview_preparation_path(@interview_preparation, company_articles: @company_articles.flatten.to_json)
+  end
+
+  def destroy
+    @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation.destroy
+    redirect_to interview_preparations_path
   end
 
   private

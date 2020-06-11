@@ -19,7 +19,8 @@
   border-radius: 4px;
   background: $orange;
   transition: background 0.3s ease;
-  color:white
+  color:white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .btn-flat:hover {
@@ -55,6 +56,9 @@
   background-color: $orange;
   transition: background 0.3s ease;
   margin-bottom: 20px;
+  &:hover {
+    color: black;
+  }
 }
 
 .btn-active {

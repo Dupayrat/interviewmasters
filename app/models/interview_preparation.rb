@@ -13,6 +13,8 @@ class InterviewPreparation < ApplicationRecord
 
   after_create :create_candidate_work
 
+  has_many :challenges, dependent: :destroy
+
   def create_candidate_work
     candidate_work = CandidateWork.new
     candidate_work.interview_preparation = self

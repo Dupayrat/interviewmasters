@@ -3,10 +3,25 @@
   margin: 0 auto;
 }
 
+.cards-interview-prep {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  a {
+    color: black;
+    text-decoration: none;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
 .card-interview-prep {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   border-radius: 10px;
   height: 350px;
@@ -19,15 +34,11 @@
   } &:hover {
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
     cursor: pointer;
-  }
-  h4 {
-    color: $orange;
-  }
-
-  .company-logo {
+  } .company-logo {
     width: 80px;
     height: 80px;
     margin: 0 auto;
+    margin-top: 10px;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
     background-size: contain;
@@ -35,6 +46,17 @@
     background-repeat: no-repeat;
   }
 }
+.card-interview-prep-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.global-card {
+  position: relative;
+}
+
+
+
 .job-title {
   color: $gray;
 }
@@ -53,6 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 30px;
   div {
     display: flex;
     justify-content: center;
@@ -103,3 +126,15 @@
       background-repeat: no-repeat;
     }
   }
+  .delete-prep {
+    position: absolute;
+    top: 336px;
+    left: 325px;
+    .fa-trash-alt {
+    color: $gray;
+    &:hover {
+      color: $orange;
+    }
+    }
+  }
+
