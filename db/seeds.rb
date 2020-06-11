@@ -84,7 +84,7 @@ backmarket_webdev.save!
 protonmail_pm = InterviewPreparation.new(
   company: "Proton Mail",
   job: "Product Manager",
-  interview_date: Date.parse("12/07/2020"),
+  interview_date: Date.parse("12/05/2020"),
   experience_expectation: "First work experience in tech companies, 1 year minimum",
   missions_attributes: [{name:"Design a mobile app in 12 months for fintech"}, {name:"Lead product priorization for fintech"}, {name:"Be the scrum master for team, leading stand up meetings"}],
   hardskills_attributes: [{hard_skill:"iOS"}, {hard_skill:"Python"}, {hard_skill:"SCRUM"}],
