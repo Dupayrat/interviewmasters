@@ -29,7 +29,6 @@
   padding: 30px;
   margin: 40px 20px 0 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  position: relative;
   p, h3 {
     margin: 0;
   } &:hover {
@@ -49,6 +48,10 @@
 .card-interview-prep-details {
   display: flex;
   justify-content: space-between;
+}
+
+.global-card {
+  position: relative;
 }
 
 
@@ -124,6 +127,8 @@
   }
   .delete-prep {
     position: absolute;
+    top: 336px;
+    left: 325px;
     .fa-trash-alt {
     color: $gray;
     &:hover {
