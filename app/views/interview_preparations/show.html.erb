@@ -97,12 +97,12 @@
               </div>
             </div>
             <div class="challenge-card" data-toggle="collapse" href="#articles-company" role="button" aria-expanded="false" aria-controls="articles-company">
-              <p>Read top 6 articles</p>
+              <p>Read top 4 articles</p>
               <div class="done">
-                <% if @interview_preparation.challenges.exists?(name: "Read top 6 articles") %>
+                <% if @interview_preparation.challenges.exists?(name: "Read top 4 articles") %>
                   <i class="far fa-check-square"></i>
                 <% else %>
-                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Read top 6 articles"), method: :post, remote: true, title: "Mark as done" do %>
+                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Read top 4 articles"), method: :post, remote: true, title: "Mark as done" do %>
                     <i class="far fa-square"></i>
                   <% end %>
                 <% end %>
@@ -167,23 +167,10 @@
 
           <div class="Get-job-info">
             <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.job %></span></h4>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Watch top 6 videos</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Read top 6 articles</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Frequently asked questions</p>
-            </div>
             <div class="challenge-card" data-toggle="collapse" href="#similar-profiles" role="button" aria-expanded="false" aria-controls="similar-profiles">
               <p>Similar profiles</p>
             </div>
-             <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Quizz</p>
-            </div>
           </div>
-
           <div class="Get-job-info">
             <h4>Show you're a great fit</h4>
             <div class="challenge-card" data-toggle="collapse" href="#star_approach" role="button" aria-expanded="false" aria-controls="collapseTest">

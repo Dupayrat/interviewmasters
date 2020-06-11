@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'google_search_results'
 
 class InterviewPreparationsController < ApplicationController
-before_action :set_interview_preparation, only: [:show, :edit, :update]
+before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_articles]
 
   def index
     @interview_preparations = current_user.interview_preparations.order('created_at DESC')
@@ -19,7 +19,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   end
 
   def show
-
+    @company_articles = params[:company_articles] || nil
     # -------------------
     # PROGRESS BAR
     # -------------------
@@ -55,23 +55,6 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     #        }
     #     end
     #   end
-
-    # ------------------
-    # ARTICLES (COMPANY)
-    # ------------------
-
-    @company_articles = []
-    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
-    doc_json = Hash.from_xml(doc)
-
-    @company_articles = [] << doc_json["rss"]["channel"]["item"][0..5].map do |item|
-     {
-      title: item["title"],
-      url: item["link"],
-      source: item["source"],
-      publication_date: item["pubDate"]
-    }
-    end
 
     # ------------------
     # CANDIDATE PREPARATION (COMPANY QUESTIONS)
@@ -143,6 +126,25 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     end
   end
 
+  def scrap_articles
+    # ------------------
+    # ARTICLES (COMPANY)
+    # ------------------
+    @company_articles = []
+    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
+    doc_json = Hash.from_xml(doc)
+
+    @company_articles << doc_json["rss"]["channel"]["item"][0..3].map do |item|
+      {
+        title: item["title"],
+        url: item["link"],
+        source: item["source"],
+        publication_date: item["pubDate"]
+      }
+    end
+    redirect_to interview_preparation_path(@interview_preparation, company_articles: @company_articles.flatten.to_json)
+  end
+
   def destroy
     @interview_preparation = InterviewPreparation.find(params[:id])
     @interview_preparation.destroy
@@ -152,7 +154,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   private
 
   def set_interview_preparation
-     @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation = InterviewPreparation.find(params[:id])
   end
 
   def interview_preparation_params

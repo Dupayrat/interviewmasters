@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :missions, only: [:new, :create]
     resources :hardskills, only: [:new, :create, :show]
     resources :candidate_works, only: [:edit, :update]
+    collection do
+      get :scrap_articles
+    end
     resources :challenges, only: [:create]
   end
 end

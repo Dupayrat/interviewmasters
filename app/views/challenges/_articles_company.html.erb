@@ -1,18 +1,22 @@
 <div class="collapse" id="articles-company" data-parent="#accordion">
-  <h3>Read top 6 articles
-    <div class="text-center">
+  <h3>Fetch for top 4 articles </h3>
+      <div class="text-center">
         <!-- Animated button -->
-        <a class="animated-btn text-white" href="#"><i class="fa fa-play"></i></a>
+        <%= link_to scrap_articles_interview_preparations_path(id: params[:id]), class: "animated-btn text-white" do %>
+          <i class="fa fa-play"></i>
+        <% end %>
     </div>
-    </h3>
-  <div class="articles">
-    <% @company_articles.flatten.each do |article| %>
-      <%= link_to article[:url], target: "_blank" do %>
-        <div class="article">
-            <h4><%= article[:title] %></h4>
-            <p><%= article[:publication_date].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
-        </div>
+  </h3>
+  <% unless @company_articles.nil? %>
+    <div class="articles">
+      <% JSON.parse(@company_articles).each do |article| %>
+        <%= link_to article["url"], target: "_blank" do %>
+          <div class="article">
+              <h4><%= article["title"] %></h4>
+              <p><%= article["publication_date"].gsub(/(\d+:\d+:\d+ GMT)/, "") %></p>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
