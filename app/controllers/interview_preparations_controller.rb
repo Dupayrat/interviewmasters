@@ -21,6 +21,14 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   def show
 
     # -------------------
+    # PROGRESS BAR
+    # -------------------
+
+    @progress_bar = 0
+    count = @interview_preparation.challenges.count
+    @progress_bar = count * (100.fdiv 6)
+
+    # -------------------
     # DAYS COUNTER
     # -------------------
 

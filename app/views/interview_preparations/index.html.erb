@@ -15,7 +15,10 @@
           </div>
           <div class="company-logo" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+            <% progress_bar = 0 %>
+            <% count = interview_preparation.challenges.count %>
+            <% progress_bar = count * (100.fdiv 6) %>
+            <div class="progress-bar" role="progressbar" style="width: <%= progress_bar %>%; background-color: #3ac162;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><%= progress_bar.round %>%</div>
           </div>
           <div class="card-interview-prep-details">
             <p class="days-counter">
