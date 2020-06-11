@@ -19,11 +19,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
   end
 
   def show
-    if @company_articles.nil?
-      @company_articles = []
-    else
-      @company_articles
-    end
+    @company_articles = params[:company_articles] || nil
     # -------------------
     # DAYS COUNTER
     # -------------------
@@ -120,22 +116,21 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
     doc_json = Hash.from_xml(doc)
 
-    @company_articles << doc_json["rss"]["channel"]["item"][0..5].map do |item|
-    {
-      title: item["title"],
-      url: item["link"],
-      source: item["source"],
-      publication_date: item["pubDate"]
-    }
+    @company_articles << doc_json["rss"]["channel"]["item"][0..3].map do |item|
+      {
+        title: item["title"],
+        url: item["link"],
+        source: item["source"],
+        publication_date: item["pubDate"]
+      }
     end
-    binding.pry
-    redirect_to interview_preparation_path(@interview_preparation)
+    redirect_to interview_preparation_path(@interview_preparation, company_articles: @company_articles.flatten.to_json)
   end
 
   private
 
   def set_interview_preparation
-     @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation = InterviewPreparation.find(params[:id])
   end
 
   def interview_preparation_params
