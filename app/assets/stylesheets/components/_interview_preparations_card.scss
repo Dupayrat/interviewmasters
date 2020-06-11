@@ -20,8 +20,8 @@
 
 .card-interview-prep {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   border-radius: 10px;
   height: 350px;
@@ -45,6 +45,17 @@
     background-repeat: no-repeat;
   }
 }
+.card-interview-prep-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.global-card {
+  position: relative;
+}
+
+
+
 .job-title {
   color: $gray;
 }
@@ -114,3 +125,15 @@
       background-repeat: no-repeat;
     }
   }
+  .delete-prep {
+    position: absolute;
+    top: 336px;
+    left: 325px;
+    .fa-trash-alt {
+    color: $gray;
+    &:hover {
+      color: $orange;
+    }
+    }
+  }
+
