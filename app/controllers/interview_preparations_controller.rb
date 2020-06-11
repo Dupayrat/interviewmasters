@@ -125,6 +125,12 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     end
   end
 
+  def destroy
+    @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation.destroy
+    redirect_to interview_preparations_path
+  end
+
   private
 
   def set_interview_preparation
