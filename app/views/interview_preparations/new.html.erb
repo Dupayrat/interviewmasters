@@ -1,73 +1,76 @@
 <div class = "container marginTopBottom" >
-  <h2 class = "text-center"> Get ready for your next interview </h2>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class = "text-center"> Get ready for your next interview </h2>
+      <%= simple_form_for @interview_preparation  do |f| %>
+        <%= f.error_notification %>
+        <div class = "form-group">
+          <%= f.input :company, placeholder: "Alan, Blablacar..." %>
+          <div class ="invalid-feedback">Company can't be blank</div>
+          <div class ="valid-feedback">Looks good!</div>
+          <small class = "line-height0"> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
+        </div>
 
-  <%= simple_form_for @interview_preparation  do |f| %>
-    <%= f.error_notification %>
-    <div class = "form-group">
-      <%= f.input :company, placeholder: "Alan, Blablacar..." %>
-      <div class ="invalid-feedback">Company can't be blank</div>
-      <div class ="valid-feedback">Looks good!</div>
-      <small class = "line-height0"> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
-    </div>
+        <div class="form-group">
+           <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
+          <div class="invalid-feedback">Job can't be blank</div>
+          <div class="valid-feedback">Looks good!</div>
+          <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
+        </div>
 
-    <div class="form-group">
-       <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
-      <div class="invalid-feedback">Job can't be blank</div>
-      <div class="valid-feedback">Looks good!</div>
-      <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
-    </div>
+       <!-- Simple_form for date only-->
+        <div class="form-group">
+              <%= f.input :interview_date, as: :string, required: true, input_html: {class: "datepicker"} %>
 
-   <!-- Simple_form for date only-->
-    <div class="form-group">
-          <%= f.input :interview_date, as: :string, required: true, input_html: {class: "datepicker"} %>
+        <div class="d-flex flex-row justify-content-between align-items-center"></div>
+          <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
+        </div>
 
-    <div class="d-flex flex-row justify-content-between align-items-center"></div>
-      <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
-    </div>
+       <div class="form-group ">
+          <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
+          <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
+        </div>
 
-   <div class="form-group ">
-      <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
-      <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
-    </div>
+        <div class="form-group ">
+          <%= f.simple_fields_for :missions do |m| %>
+            <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
+            <%= m.input :label, as: :hidden, value: m.object.label %>
+            <%= m.input :name, as: :string, label: false %>
+          <% end %>
+        </div>
 
-    <div class="form-group ">
-      <%= f.simple_fields_for :missions do |m| %>
-        <small> <%= m.label m.object.label, class: "form-text text-muted" %></small>
-        <%= m.input :label, as: :hidden, value: m.object.label %>
-        <%= m.input :name, as: :string, label: false %>
+        <div class="form-group ">
+          <div class= "container no-padding">
+            <div class = "row">
+              <%= f.simple_fields_for :hardskills do |h| %>
+              <div class = "col">
+                <small> <%= h.label h.object.label, class: "form-text text-muted" %></small>
+                  <%= h.input :label, as: :hidden, value: h.object.label %>
+                  <%= h.input :hard_skill, as: :string, label: false, placeholder:"acquisition, UX design, data analysis..." %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class= "container no-padding">
+            <div class = "row">
+              <%= f.simple_fields_for :softskills do |s| %>
+              <div class = "col">
+                <small> <%= s.label s.object.label, class: "form-text text-muted" %></small>
+                  <%= s.input :label, as: :hidden, value: s.object.label %>
+                  <%= s.input :soft_skill, as: :string, label: false, placeholder:"team player, management, adaptability..." %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <%= f.submit "Start my interview preparation work", class: "btn btn-flat" %>
+          <%= link_to "Cancel", interview_preparations_path, class: "btn btn-ghost" %>
+        </div>
       <% end %>
     </div>
-
-    <div class="form-group ">
-      <div class= "container no-padding">
-        <div class = "row">
-          <%= f.simple_fields_for :hardskills do |h| %>
-          <div class = "col">
-            <small> <%= h.label h.object.label, class: "form-text text-muted" %></small>
-              <%= h.input :label, as: :hidden, value: h.object.label %>
-              <%= h.input :hard_skill, as: :string, label: false, placeholder:"acquisition, UX design, data analysis..." %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="form-group ">
-      <div class= "container no-padding">
-        <div class = "row">
-          <%= f.simple_fields_for :softskills do |s| %>
-          <div class = "col">
-            <small> <%= s.label s.object.label, class: "form-text text-muted" %></small>
-              <%= s.input :label, as: :hidden, value: s.object.label %>
-              <%= s.input :soft_skill, as: :string, label: false, placeholder:"team player, management, adaptability..." %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group ">
-      <%= f.submit "Start my interview preparation work", class: "btn btn-flat" %>
-      <%= link_to "Cancel", interview_preparations_path, class: "btn btn-ghost" %>
-    </div>
-  <% end %>
+  </div>
 </div>
