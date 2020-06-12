@@ -25,24 +25,23 @@
                       required: true,
                       input_html: { autocomplete: "current-password" } %>
         </div>
-
+        <!--
         <div>
           <%= f.input :skills,
                       hint: "leave it blank if you don't want to change it",
                       required: false,
-                      input_html: { autocomplete: "Economics,programmer,engener..." } %>
+                      input_html: { autocomplete: "Economics,programmer,engener..." },
+                      placeholder: "kk" %>
         </div>
-        <div>
-          <%= f.button :submit, "Update", class: "btn-profile-update" %>
+-->
+        <div class="form-group">
+          <%= f.button :submit, "Update", class: "btn btn-flat" %>
+        <% end %>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-ghost" %>
         </div>
-      <% end %>
-
-      <p>
-        <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn-cancel-account" %>
-      </p>
-      <p>
-        <%= link_to "Back", :back %>
-      </p>
+          <p>
+            <%= link_to "Back", :back %>
+          </p>
     </div>
   </div>
 </div>
