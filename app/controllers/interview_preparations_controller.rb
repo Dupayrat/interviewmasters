@@ -113,6 +113,10 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     @interview_preparation.hardskills.build(label: "Hard skill expected - 1")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 2")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 3")
+
+    @interview_preparation.softskills.build(label: "Soft skill expected - 1")
+    @interview_preparation.softskills.build(label: "Soft skill expected - 2")
+    @interview_preparation.softskills.build(label: "Soft skill expected - 3")
   end
 
   def create
@@ -165,7 +169,9 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     :experience_expectation,
     missions_attributes: [:id, :name, :label],
     hardskills_attributes: [:id, :hard_skill, :label],
-    candidate_works_attributes: [:id, :question, :answer]
+    candidate_works_attributes: [:id, :question, :answer],
+    softskills_attributes: [:id, :hard_skill, :label]
+
     )
   end
 end

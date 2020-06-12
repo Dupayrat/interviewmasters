@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_150826) do
+ActiveRecord::Schema.define(version: 2020_06_12_071625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_06_10_150826) do
     t.index ["interview_preparation_id"], name: "index_missions_on_interview_preparation_id"
   end
 
+  create_table "softskills", force: :cascade do |t|
+    t.text "soft_skill"
+    t.bigint "interview_preparation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["interview_preparation_id"], name: "index_softskills_on_interview_preparation_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -96,4 +104,5 @@ ActiveRecord::Schema.define(version: 2020_06_10_150826) do
   add_foreign_key "hardskills", "interview_preparations"
   add_foreign_key "interview_preparations", "users"
   add_foreign_key "missions", "interview_preparations"
+  add_foreign_key "softskills", "interview_preparations"
 end
