@@ -41,6 +41,11 @@
     background-repeat: no-repeat;
   }
 }
+.box-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 .experience-expectations {
   p {
     margin-top: 10px;
