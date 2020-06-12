@@ -45,12 +45,15 @@
             </h2>
             <% counter = 1 %>
             <% @interview_preparation.missions.each do |mission| %>
-              <p><%= counter %>. <%= mission.name %></p>
-              <% counter += 1 %>
+              <% if mission.name == "" %>
+              <% else %>
+                <p><%= counter %>. <%= mission.name %></p>
+                <% counter += 1 %>
+              <% end %>
             <% end %>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-3 align-top">
           <div class="hard-skills">
             <h2>Hard skills
               <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -58,10 +61,15 @@
           </h2>
             <% counter = 1 %>
             <% @interview_preparation.hardskills.each do |hardskill| %>
-              <p><%= counter %>. <%= hardskill.hard_skill %></p>
-              <% counter += 1 %>
+              <% if hardskill.hard_skill == "" %>
+              <% else %>
+                <p><%= counter %>. <%= hardskill.hard_skill %></p>
+                <% counter += 1 %>
+              <% end %>
             <% end %>
           </div>
+        </div>
+        <div class="col-3 align-top>
            <div class="soft-skills">
             <h2>Soft skills
             <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -69,7 +77,10 @@
             </h2>
               <% counter = 1 %>
               <% @interview_preparation.softskills.each do |softskill| %>
+              <% if softskill.soft_skill == "" %>
+              <% else %>
                 <p><%= counter %>. <%= softskill.soft_skill %></p>
+              <% end %>
               <% counter += 1 %>
             <% end %>
           </div>

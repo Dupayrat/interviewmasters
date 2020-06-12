@@ -170,7 +170,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     missions_attributes: [:id, :name, :label],
     hardskills_attributes: [:id, :hard_skill, :label],
     candidate_works_attributes: [:id, :question, :answer],
-    softskills_attributes: [:id, :hard_skill, :label]
+    softskills_attributes: [:id, :soft_skill, :label]
 
     )
   end
