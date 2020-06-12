@@ -62,7 +62,11 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
 
     @candidate_works = @interview_preparation.candidate_works
     @candidate_works1 = [] << @interview_preparation.candidate_works.first(4)
+    @placeholder1 = ["Link your motivation to the pain the company tries to solve", "Show the company objectives matches your ambition", "Use it either for chit-chat talk or to stress your willingness to join team", "Don't only state them, but demonstrates you will help tackle them"]
+
     @candidate_works2 = [] << @interview_preparation.candidate_works.slice(4, 4)
+    @placeholder2 = ["Stress on why this culture & values resonates with you", "Show your passion, ideally by telling something personal", "Prove the interviewer you are ready for long-term commitment and had deep tought about it", "People remember stories more than formatted answers..."]
+
     @candidate_works3 = [] << @interview_preparation.candidate_works.slice(8, 4)
     @candidate_works4 = [] << @interview_preparation.candidate_works.slice(12, 4)
 
@@ -102,6 +106,8 @@ before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_a
     }
     client = GoogleSearchResults.new(params_job_company_serapi)
     @hash_results_job_and_company = client.get_hash
+
+
   end
 
   def new
