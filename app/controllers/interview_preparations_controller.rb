@@ -4,7 +4,7 @@ require 'nokogiri'
 require 'google_search_results'
 
 class InterviewPreparationsController < ApplicationController
-before_action :set_interview_preparation, only: [:show, :edit, :update]
+before_action :set_interview_preparation, only: [:show, :edit, :update, :scrap_articles]
 
   def index
     @interview_preparations = current_user.interview_preparations.order('created_at DESC')
@@ -19,14 +19,14 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   end
 
   def show
-
+    @company_articles = params[:company_articles] || nil
     # -------------------
     # PROGRESS BAR
     # -------------------
 
     @progress_bar = 0
     count = @interview_preparation.challenges.count
-    @progress_bar = count * (100.fdiv 7)
+    @progress_bar = count * (100.fdiv 8)
 
     # -------------------
     # DAYS COUNTER
@@ -38,40 +38,23 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # VIDEOS OF (COMPANY)
     # -------------------
 
-    # @company_videos = []
+    @company_videos = []
 
-    # urls = [
-    #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
-    #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20Interview&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
-    #   "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20start%20up&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2"
-    # ]
-    #   urls.each do |url|
-    #     json = JSON.parse(open(url).read)
-    #     @company_videos << json["items"].map do |video|
-    #       {
-    #       title: video["snippet"]["title"],
-    #       thumbnails: video["snippet"]["thumbnails"]["default"]["url"],
-    #       url: "https://www.youtube.com/watch?v=#{video["id"]["videoId"]}"
-    #        }
-    #     end
-    #   end
-
-    # ------------------
-    # ARTICLES (COMPANY)
-    # ------------------
-
-    @company_articles = []
-    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
-    doc_json = Hash.from_xml(doc)
-
-    @company_articles = [] << doc_json["rss"]["channel"]["item"][0..5].map do |item|
-     {
-      title: item["title"],
-      url: item["link"],
-      source: item["source"],
-      publication_date: item["pubDate"]
-    }
-    end
+    urls = [
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20ceo&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20Interview&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2",
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&q=#{@interview_preparation.company}%20start%20up&type=video&relevanceLanguage=FR&key=#{ENV.fetch('YOUTUBE_API_KEY')}&maxResults=2"
+    ]
+      urls.each do |url|
+        json = JSON.parse(open(url).read)
+        @company_videos << json["items"].map do |video|
+          {
+          title: video["snippet"]["title"],
+          thumbnails: video["snippet"]["thumbnails"]["default"]["url"],
+          url: "https://www.youtube.com/watch?v=#{video["id"]["videoId"]}"
+           }
+        end
+      end
 
     # ------------------
     # CANDIDATE PREPARATION (COMPANY QUESTIONS)
@@ -98,7 +81,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     # SIMILAR PROFILES
     # ------------------------------------
 
-    params_profiles_serapi = {
+    params_job_serapi = {
         q: "#{@interview_preparation.job} site:linkedin.com/in",
         location: "Switzerland",
         hl: "en",
@@ -106,9 +89,19 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
         google_domain: "google.com",
         api_key: ENV.fetch('SERAPI_API_KEY')
     }
+    client = GoogleSearchResults.new(params_job_serapi)
+    @hash_results_job = client.get_hash
 
-    client = GoogleSearchResults.new(params_profiles_serapi)
-    @hash_results = client.get_hash
+    params_job_company_serapi = {
+        q: "#{@interview_preparation.job} #{@interview_preparation.company} site:linkedin.com/in",
+        location: "Switzerland",
+        hl: "en",
+        gl: "ch",
+        google_domain: "google.com",
+        api_key: ENV.fetch('SERAPI_API_KEY')
+    }
+    client = GoogleSearchResults.new(params_job_company_serapi)
+    @hash_results_job_and_company = client.get_hash
   end
 
   def new
@@ -120,6 +113,10 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     @interview_preparation.hardskills.build(label: "Hard skill expected - 1")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 2")
     @interview_preparation.hardskills.build(label: "Hard skill expected - 3")
+
+    @interview_preparation.softskills.build(label: "Soft skill expected - 1")
+    @interview_preparation.softskills.build(label: "Soft skill expected - 2")
+    @interview_preparation.softskills.build(label: "Soft skill expected - 3")
   end
 
   def create
@@ -133,6 +130,25 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     end
   end
 
+  def scrap_articles
+    # ------------------
+    # ARTICLES (COMPANY)
+    # ------------------
+    @company_articles = []
+    doc = open("https://news.google.com/rss/search?q=#{@interview_preparation.company}&hl=fr&gl=FR&ceid=FR:fr")
+    doc_json = Hash.from_xml(doc)
+
+    @company_articles << doc_json["rss"]["channel"]["item"][0..3].map do |item|
+      {
+        title: item["title"],
+        url: item["link"],
+        source: item["source"],
+        publication_date: item["pubDate"]
+      }
+    end
+    redirect_to interview_preparation_path(@interview_preparation, company_articles: @company_articles.flatten.to_json)
+  end
+
   def destroy
     @interview_preparation = InterviewPreparation.find(params[:id])
     @interview_preparation.destroy
@@ -142,7 +158,7 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
   private
 
   def set_interview_preparation
-     @interview_preparation = InterviewPreparation.find(params[:id])
+    @interview_preparation = InterviewPreparation.find(params[:id])
   end
 
   def interview_preparation_params
@@ -153,7 +169,9 @@ before_action :set_interview_preparation, only: [:show, :edit, :update]
     :experience_expectation,
     missions_attributes: [:id, :name, :label],
     hardskills_attributes: [:id, :hard_skill, :label],
-    candidate_works_attributes: [:id, :question, :answer]
+    candidate_works_attributes: [:id, :question, :answer],
+    softskills_attributes: [:id, :soft_skill, :label]
+
     )
   end
 end

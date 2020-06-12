@@ -9,18 +9,24 @@
         <% client = GoogleSearchResults.new(params_logos_serapi) %>
         <% @images_results = client.get_hash[:images_results] %>
         <div class="company-logo box1" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
-      <p>
-        Interview
-        <% if @days_counter.negative? %>
-          <span class="days-bold box2"><%= "Finished" %></span>
-        <% elsif @days_counter == 1 %>
-          in <span class="days-bold box2"><%= @days_counter %></span> day
-        <% elsif @days_counter.zero? %>
-          <span class="days-bold box2"><%= "Today" %></span>
-        <% else %>
-          in <span class="days-bold"><%= @days_counter %></span> days
-        <% end %>
-      </p>
+      <div class ="box1">
+        <p>
+          Interview
+          <% if @days_counter.negative? %>
+            <span class="days-bold box2"><%= "Finished" %></span>
+          <% elsif @days_counter == 1 %>
+            in <span class="days-bold box2"><%= @days_counter %></span> day
+          <% elsif @days_counter.zero? %>
+            <span class="days-bold box2"><%= "Today" %></span>
+          <% else %>
+            in <span class="days-bold"><%= @days_counter %></span> days
+          <% end %>
+        </p>
+        <p>
+          Interview date:
+          <span class="days-bold box2"><%= @interview_preparation.interview_date %></span>
+        </p>
+       </div>
     </div>
     <div class="container no-padding">
       <div class="row">
@@ -39,12 +45,15 @@
             </h2>
             <% counter = 1 %>
             <% @interview_preparation.missions.each do |mission| %>
-              <p><%= counter %>. <%= mission.name %></p>
-              <% counter += 1 %>
+              <% if mission.name == "" %>
+              <% else %>
+                <p><%= counter %>. <%= mission.name %></p>
+                <% counter += 1 %>
+              <% end %>
             <% end %>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-3 align-top">
           <div class="hard-skills">
             <h2>Hard skills
               <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
@@ -52,16 +61,28 @@
           </h2>
             <% counter = 1 %>
             <% @interview_preparation.hardskills.each do |hardskill| %>
-              <p><%= counter %>. <%= hardskill.hard_skill %></p>
-              <% counter += 1 %>
+              <% if hardskill.hard_skill == "" %>
+              <% else %>
+                <p><%= counter %>. <%= hardskill.hard_skill %></p>
+                <% counter += 1 %>
+              <% end %>
             <% end %>
           </div>
+        </div>
+        <div class="col-3 align-top>
            <div class="soft-skills">
             <h2>Soft skills
             <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
               <i class="em em-clubs" aria-role="presentation" aria-label="BLACK CLUB SUIT"></i>
             </h2>
-            <p>add soft skills</p>
+              <% counter = 1 %>
+              <% @interview_preparation.softskills.each do |softskill| %>
+              <% if softskill.soft_skill == "" %>
+              <% else %>
+                <p><%= counter %>. <%= softskill.soft_skill %></p>
+              <% end %>
+              <% counter += 1 %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -97,12 +118,12 @@
               </div>
             </div>
             <div class="challenge-card" data-toggle="collapse" href="#articles-company" role="button" aria-expanded="false" aria-controls="articles-company">
-              <p>Read top 6 articles</p>
+              <p>Read top 4 articles</p>
               <div class="done">
-                <% if @interview_preparation.challenges.exists?(name: "Read top 6 articles") %>
+                <% if @interview_preparation.challenges.exists?(name: "Read top 4 articles") %>
                   <i class="far fa-check-square"></i>
                 <% else %>
-                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Read top 6 articles"), method: :post, remote: true, title: "Mark as done" do %>
+                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Read top 4 articles"), method: :post, remote: true, title: "Mark as done" do %>
                     <i class="far fa-square"></i>
                   <% end %>
                 <% end %>
@@ -167,23 +188,19 @@
 
           <div class="Get-job-info">
             <h4>Get info about  <span class="font-weight-bold"><%= @interview_preparation.job %></span></h4>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Watch top 6 videos</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Read top 6 articles</p>
-            </div>
-            <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Frequently asked questions</p>
-            </div>
             <div class="challenge-card" data-toggle="collapse" href="#similar-profiles" role="button" aria-expanded="false" aria-controls="similar-profiles">
               <p>Similar profiles</p>
-            </div>
-             <div class="challenge-card" data-toggle="collapse" href="#collapseTest" role="button" aria-expanded="false" aria-controls="collapseTest">
-              <p>Quizz</p>
+              <div class="done">
+                <% if @interview_preparation.challenges.exists?(name: "Similar profiles") %>
+                  <i class="far fa-check-square"></i>
+                <% else %>
+                  <%= link_to interview_preparation_challenges_path(@interview_preparation, name: "Similar profiles"), method: :post, remote: true, title: "Mark as done" do %>
+                    <i class="far fa-square"></i>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
-
           <div class="Get-job-info">
             <h4>Show you're a great fit</h4>
             <div class="challenge-card" data-toggle="collapse" href="#star_approach" role="button" aria-expanded="false" aria-controls="collapseTest">
@@ -216,6 +233,7 @@
 
       <div class="display-zone col-8 scrollable-display-zone">
         <div class="accordion" id="accordion">
+          <%= render 'challenges/videos_company'%>
           <%= render 'challenges/articles_company'%>
           <%= render 'challenges/questions_company1on4'%>
           <%= render 'challenges/questions_company2on4'%>

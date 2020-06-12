@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   resources :interview_preparations, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :missions, only: [:new, :create]
     resources :hardskills, only: [:new, :create, :show]
+    resources :softskills, only: [:new, :create, :show]
     resources :candidate_works, only: [:edit, :update]
+    collection do
+      get :scrap_articles
+    end
     resources :challenges, only: [:create]
   end
 end

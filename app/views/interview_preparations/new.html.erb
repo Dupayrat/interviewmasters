@@ -47,7 +47,20 @@
               <div class = "col">
                 <small> <%= h.label h.object.label, class: "form-text text-muted" %></small>
                   <%= h.input :label, as: :hidden, value: h.object.label %>
-                  <%= h.input :hard_skill, as: :string, label: false, placeholder:"acquisition, UX design, data analysis.." %>
+                  <%= h.input :hard_skill, as: :string, label: false, placeholder:"acquisition, UX design, data analysis..." %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class= "container no-padding">
+            <div class = "row">
+              <%= f.simple_fields_for :softskills do |s| %>
+              <div class = "col">
+                <small> <%= s.label s.object.label, class: "form-text text-muted" %></small>
+                  <%= s.input :label, as: :hidden, value: s.object.label %>
+                  <%= s.input :soft_skill, as: :string, label: false, placeholder:"team player, management, adaptability..." %>
                 </div>
               <% end %>
             </div>

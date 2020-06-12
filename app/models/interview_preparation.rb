@@ -15,6 +15,9 @@ class InterviewPreparation < ApplicationRecord
 
   has_many :challenges, dependent: :destroy
 
+  has_many :softskills, dependent: :destroy
+  accepts_nested_attributes_for :softskills
+
   def create_candidate_work
     candidate_work = CandidateWork.new
     candidate_work.interview_preparation = self
