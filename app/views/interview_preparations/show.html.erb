@@ -67,7 +67,10 @@
             <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
               <i class="em em-clubs" aria-role="presentation" aria-label="BLACK CLUB SUIT"></i>
             </h2>
-            <p>add soft skills</p>
+             <% @interview_preparation.hardskills.each do |hardskill| %>
+              <p><%= counter %>. <%= hardskill.hard_skill %></p>
+              <% counter += 1 %>
+            <% end %>
           </div>
         </div>
       </div>
