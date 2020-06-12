@@ -1,21 +1,23 @@
-<div class = "container marginTopBottom" >
+<div class = "container marginTopBottom">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-8 offset-md-2">
       <h2 class = "text-center"> Get ready for your next interview </h2>
+
       <%= simple_form_for @interview_preparation  do |f| %>
         <%= f.error_notification %>
         <div class = "form-group">
-          <%= f.input :company, placeholder: "Alan, Blablacar..." %>
+          <%= f.input :company, placeholder: "Alan, Blablacar...", class: "form-text text-color-gray" %>
           <div class ="invalid-feedback">Company can't be blank</div>
           <div class ="valid-feedback">Looks good!</div>
-          <small class = "line-height0"> <%= f.label "The company you will be interviewing with", class: "form-text text-muted" %></small>
+          <small class = "line-height0"> <%= f.label "The company you will be interviewing with", class: "form-text text-muted-under" %></small>
         </div>
 
         <div class="form-group">
            <%= f.input :job, placeholder: "Key account manager, Front-end developer, Head of Customer success..." %>
           <div class="invalid-feedback">Job can't be blank</div>
           <div class="valid-feedback">Looks good!</div>
-          <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted" %></small>
+
+          <small class = "line-height0"> <%= f.label "The job position you're interviewing for", class: "form-text text-muted-under" %></small>
         </div>
 
        <!-- Simple_form for date only-->
@@ -23,12 +25,16 @@
               <%= f.input :interview_date, as: :string, required: true, input_html: {class: "datepicker"} %>
 
         <div class="d-flex flex-row justify-content-between align-items-center"></div>
-          <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted" %></small>
+
+          <small class = "line-height0"> <%= f.label "Interview occurring upon", class: "form-text text-muted-under" %></small>
+
         </div>
 
        <div class="form-group ">
           <%= f.input :experience_expectation, as: :text, placeholder: "At least 2 years in a serie B start-up... One experience as a developer (min 1 year) with Rails and JS... " %>
-          <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted" %></small>
+
+          <small class = "line-height0"> <%= f.label "What are the expectations for the perfect candidate, as written in the job description", class: "form-text text-muted-under" %></small>
+
         </div>
 
         <div class="form-group ">
@@ -46,7 +52,9 @@
               <div class = "col">
                 <small> <%= h.label h.object.label, class: "form-text text-muted" %></small>
                   <%= h.input :label, as: :hidden, value: h.object.label %>
-                  <%= h.input :hard_skill, as: :string, label: false, placeholder:"acquisition, UX design, data analysis..." %>
+
+                  <%= h.input :hard_skill, as: :string, label: false, placeholder:"data, UX, sales..." %>
+
                 </div>
               <% end %>
             </div>
@@ -59,7 +67,9 @@
               <div class = "col">
                 <small> <%= s.label s.object.label, class: "form-text text-muted" %></small>
                   <%= s.input :label, as: :hidden, value: s.object.label %>
-                  <%= s.input :soft_skill, as: :string, label: false, placeholder:"team player, management, adaptability..." %>
+
+                  <%= s.input :soft_skill, as: :string, label: false, placeholder:"team player, mgt ..." %>
+
                 </div>
               <% end %>
             </div>
@@ -74,3 +84,4 @@
     </div>
   </div>
 </div>
+

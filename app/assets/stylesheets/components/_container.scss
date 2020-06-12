@@ -7,6 +7,14 @@
 line-height: 0.8;
 
   .text-muted {
-  margin-bottom: 25px;
+  margin-bottom: -5px;
+  }
+  .text-muted-under {
+    margin-top: -10px;
+    color: #6c757d;
   }
 }
+::placeholder {
+    color: $mediumgray !important;
+}
+
