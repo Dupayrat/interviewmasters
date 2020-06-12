@@ -9,7 +9,7 @@
         <% client = GoogleSearchResults.new(params_logos_serapi) %>
         <% @images_results = client.get_hash[:images_results] %>
         <div class="company-logo box1" style="background-image: url(<%= @images_results[0][:original] %>)"></div>
-      <div class ="box1">
+      <div class ="box-date">
         <p>
           Interview
           <% if @days_counter.negative? %>
@@ -22,9 +22,8 @@
             in <span class="days-bold"><%= @days_counter %></span> days
           <% end %>
         </p>
-        <p>
-          Interview date:
-          <span class="days-bold box2"><%= @interview_preparation.interview_date %></span>
+        <p class="date">
+          <%= @interview_preparation.interview_date %>
         </p>
        </div>
     </div>
