@@ -75,7 +75,7 @@ backmarket_webdev = InterviewPreparation.new(
   experience_expectation: "Computer sciences degrees and 2 years work on Rails & Javascript",
   missions_attributes: [{name:"Improve front end using Javascript & Rails tech"}, {name:"Develop new functionalities"}, {name:"Develop back-end feature from conception to delivery"}],
   hardskills_attributes: [{hard_skill:"Javascript"}, {hard_skill:"CSS"}, {hard_skill:"IA (notions)"}],
-
+  softskills_attributes: [{soft_skill:"Team player"}, {soft_skill:"Logical mind"}, {soft_skill:"Adaptability"}],
   # UPLOAD JOB DESC:
   user: anthony
   )
@@ -88,7 +88,7 @@ protonmail_pm = InterviewPreparation.new(
   experience_expectation: "First work experience in tech companies, 1 year minimum",
   missions_attributes: [{name:"Design a mobile app in 12 months for fintech"}, {name:"Lead product priorization for fintech"}, {name:"Be the scrum master for team, leading stand up meetings"}],
   hardskills_attributes: [{hard_skill:"iOS"}, {hard_skill:"Python"}, {hard_skill:"SCRUM"}],
-
+  softskills_attributes: [{soft_skill:"Team player"}, {soft_skill:"Management"}, {soft_skill:"Adaptability"}],
   # UPLOAD JOB DESC:
   user: anthony
   )
@@ -102,7 +102,7 @@ doctolib_sales = InterviewPreparation.new(
   # UPLOAD JOB DESC:
   missions_attributes: [{name:"Hitting sales target in B2B"}, {name:"Training your team to hit sales target"}, {name:"Ongoing improvement over methods & processes"}],
   hardskills_attributes: [{hard_skill:"Sales B2B"}, {hard_skill:"SaaS"}, {hard_skill:"Negotiation"}],
-
+  softskills_attributes: [{soft_skill:"Team player"}, {soft_skill:"Management"}, {soft_skill:"Adaptability"}],
   user: anthony
   )
 doctolib_sales.save!
@@ -115,7 +115,7 @@ toogoodtogo_mobiledev = InterviewPreparation.new(
   # UPLOAD JOB DESC:
   missions_attributes: [{name:"Develop new mobile features Android & iOS"}, {name:"Maintain security and release new versions"}, {name:"Act as scrum Master for the team"}],
   hardskills_attributes: [{hard_skill:"iOS"}, {hard_skill:"Android"}, {hard_skill:"SCRUM"}],
-
+  softskills_attributes: [{soft_skill:"Team player"}, {soft_skill:"Logical mind"}, {soft_skill:"Adaptability"}],
   user: anthony
   )
 toogoodtogo_mobiledev.save!
@@ -127,7 +127,7 @@ manomano_software = InterviewPreparation.new(
   experience_expectation: "5 years as a software engineer developping products. Good knowledge of PHP",
   missions_attributes: [{name:"Analyze, design and develop tests and test-automation suites."}, {name:"Provide ongoing maintenance, support and enhancements in existing systems and platforms."}, {name:"Design and develop a processing platform using various configuration management technologies."}],
   hardskills_attributes: [{hard_skill:"Database (Posgresql, Sqlite3)"}, {hard_skill:"C++"}, {hard_skill:"Java"}],
-
+  softskills_attributes: [{soft_skill:"Team player"}, {soft_skill:"Logical mind"}, {soft_skill:"Adaptability"}],
   # UPLOAD JOB DESC:
   user: anthony
   )
